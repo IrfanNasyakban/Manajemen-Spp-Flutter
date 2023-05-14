@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1065711597597",
+    "project_id": "manajemen-spp",
+    "storage_bucket": "manajemen-spp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065711597597:android:f7a48d5bf06b9ec92aeef4",
+        "android_client_info": {
+          "package_name": "com.example.manajemen_spp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1065711597597-s7l7atjvibtlsugfa49temrihk8dn7qi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKAy66caLmnpwjd7u9oqs0nADmfHB0X2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1065711597597-s7l7atjvibtlsugfa49temrihk8dn7qi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
