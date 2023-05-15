@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:manajemen_spp/repository.dart';
+import 'package:manajemen_spp/models.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -11,6 +13,32 @@ class MyProfile extends StatefulWidget {
 class _MyProfileState extends State<MyProfile> {
   final user = FirebaseAuth.instance.currentUser!;
 
+  List<Siswa> listSiswa = [];
+  Repository repository = Repository();
+  bool isLoading = true;
+
+  getData() async {
+    try {
+      listSiswa = await repository.getData();
+      setState(() {
+        isLoading = false;
+      });
+    } catch (error) {
+      // Tangani error dengan sesuai, misalnya tampilkan pesan kesalahan
+      print('Error: $error');
+      setState(() {
+        isLoading = false;
+        listSiswa = []; // Set listSiswa ke daftar kosong
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
   @override
   Widget build(BuildContext context) {
     String userEmail = user.email!;
@@ -18,8 +46,12 @@ class _MyProfileState extends State<MyProfile> {
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
+    } else if (userEmail == 'ari@gmail.com') {
+      username = 'Muhammad Ariansyah';
+    } else if (userEmail == 'widia@gmail.com') {
+      username = 'Widia Hamsi';
     } else {
-      username = 'Guest';
+      username = 'Fannisa Nadhira';
     }
 
     return Scaffold(
@@ -71,30 +103,48 @@ class _MyProfileState extends State<MyProfile> {
             ),
           ),
           const SizedBox(height: 20),
-          ProfileDetailColumn(
-            title: 'Nama',
-            value: username,
-          ),
-          const SizedBox(height: 10),
-          ProfileDetailColumn(
-            title: 'Email',
-            value: user.email!,
-          ),
-          const SizedBox(height: 20),
-          ProfileDetailColumn(
-            title: 'NIS',
-            value: '8264782687',
-          ),
-          const SizedBox(height: 20),
-          ProfileDetailColumn(
-            title: 'Tempat, Tanggal Lahir',
-            value: 'Langsa, 25 Oktober 1999',
-          ),
-          const SizedBox(height: 20),
-          ProfileDetailColumn(
-            title: 'Alamat',
-            value: 'Aceh, Kota Langsa',
-          ),
+          if (isLoading)
+            Center(
+              child: CircularProgressIndicator(), // Menampilkan loading spinner
+            )
+          else if (listSiswa.isNotEmpty)
+            Column(
+              children: [
+                ProfileDetailColumn(
+                  title: 'Nama',
+                  value: username,
+                ),
+                const SizedBox(height: 10),
+                ProfileDetailColumn(
+                  title: 'Email',
+                  value: user.email!,
+                ),
+                const SizedBox(height: 20),
+                for (var siswa in listSiswa)
+                  Column(
+                    children: [
+                      ProfileDetailColumn(
+                        title: 'NIS',
+                        value: siswa.nis,
+                      ),
+                      const SizedBox(height: 20),
+                      ProfileDetailColumn(
+                        title: 'Tempat, Tanggal Lahir',
+                        value: siswa.ttl,
+                      ),
+                      const SizedBox(height: 20),
+                      ProfileDetailColumn(
+                        title: 'Alamat',
+                        value: siswa.alamat,
+                      ),
+                    ],
+                  ),
+              ],
+            )
+          else
+            Text(
+              'Tidak ada data siswa.', // Pesan jika listSiswa kosong
+            ),
         ],
       ),
     );
