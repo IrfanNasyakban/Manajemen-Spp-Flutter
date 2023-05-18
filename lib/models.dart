@@ -26,3 +26,32 @@ class Siswa {
     );
   }
 }
+
+class ImageData {
+  String nama;
+  String kelas;
+  String semester;
+  String jumlah;
+  String bukti;
+  String id;
+
+  ImageData({
+    required this.nama,
+    required this.kelas,
+    required this.semester,
+    required this.jumlah,
+    required this.bukti,
+    required this.id,
+  });
+
+  factory ImageData.fromJson(Map<String, dynamic> json) {
+    return ImageData(
+      nama: json['nama'],
+      kelas: json['kelas'],
+      semester: json['semester'],
+      jumlah: json['jumlah'],
+      bukti: json['bukti'],
+      id: json['id'],
+    );
+  }
+}

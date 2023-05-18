@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
           )
         ],
       ),
-      backgroundColor: Color.fromARGB(255, 231, 231, 231),
+      backgroundColor: Color.fromARGB(255, 145, 108, 237),
       nextScreen: MainPage(),
       splashIconSize: 250,
       duration: 4000,
