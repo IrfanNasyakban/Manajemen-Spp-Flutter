@@ -56,21 +56,22 @@ class _MyProfileState extends State<MyProfile> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Profile'),
+        title: Text('Profile'),
+        backgroundColor: Colors.deepPurple,
       ),
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Colors.deepPurple,
               borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(50),
               ),
             ),
             child: Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 35),
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
                   title: Text(username,
@@ -78,7 +79,7 @@ class _MyProfileState extends State<MyProfile> {
                           .textTheme
                           .headlineSmall
                           ?.copyWith(color: Colors.white)),
-                  subtitle: Text('Good Morning',
+                  subtitle: Text('SMAN 1 WATES',
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium

@@ -49,7 +49,7 @@ class _FormBayarState extends State<FormBayar> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pembayaran SPP'),
-        backgroundColor: Colors.deepPurple[200],
+        backgroundColor: Colors.deepPurple,
       ),
       body: SafeArea(
         child: Center(
@@ -58,10 +58,10 @@ class _FormBayarState extends State<FormBayar> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Hello Again!',
+                  'Silahkan Input Data Pembayaran',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 36,
+                    fontSize: 24,
                   ),
                 ),
                 SizedBox(
@@ -194,6 +194,7 @@ class _FormBayarState extends State<FormBayar> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextField(
+                      enabled: false,
                       controller: _textBuktiController,
                       decoration: InputDecoration(
                         border: InputBorder.none,

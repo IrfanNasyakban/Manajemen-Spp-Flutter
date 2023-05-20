@@ -17,10 +17,22 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
 
   Future signIn() async {
+    try {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: _emailController.text.trim(),
       password: _passwordController.text.trim(),
     );
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text("EMAIL ATAU PASSWORD SALAH"),
+          );
+        },
+      );
+    }
   }
 
   @override
@@ -40,16 +52,13 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.school,
-                  size: 100,
-                ),
+                Image.asset('assets/logo.png'),
                 SizedBox(
-                  height: 75,
+                  height: 15,
                 ),
                 // Hello
                 Text(
-                  'Hello Again!',
+                  'Selamat Datang',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 36,
@@ -59,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 10,
                 ),
                 Text(
-                  'WelcomeBack, you\'ve been missed!',
+                  'Manajemen SPP SMAN 1 WATES',
                   style: TextStyle(
                     fontSize: 24,
                   ),
@@ -129,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       child: Center(
                         child: Text(
-                          'Sign in',
+                          'Masuk',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -149,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Forgot Password?',
+                      'Lupa Password?',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -166,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                       child: Text(
-                        ' Click Here',
+                        ' Klik Disini',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,

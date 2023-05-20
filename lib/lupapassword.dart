@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:manajemen_spp/loginpage.dart';
 
 class LupaPassword extends StatefulWidget {
   const LupaPassword({super.key});
@@ -25,10 +26,13 @@ class _LupaPasswordState extends State<LupaPassword> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            content: Text('Link untuk ubah password sudah dikirim, silahkan cek Email!'),
+            content: Text(
+                'Link untuk ubah password sudah dikirim, silahkan cek Email!'),
           );
         },
-      );
+      ).then((value) {
+        Navigator.pop(context); // Kembali ke halaman sebelumnya
+      });
     } on FirebaseAuthException catch (e) {
       print(e);
       showDialog(
@@ -38,7 +42,9 @@ class _LupaPasswordState extends State<LupaPassword> {
             content: Text(e.message.toString()),
           );
         },
-      );
+      ).then((value) {
+        Navigator.pop(context); // Kembali ke halaman sebelumnya
+      });
     }
   }
 
@@ -46,7 +52,7 @@ class _LupaPasswordState extends State<LupaPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple[200],
+          backgroundColor: Colors.deepPurple,
           elevation: 0,
         ),
         body: Column(
@@ -92,8 +98,13 @@ class _LupaPasswordState extends State<LupaPassword> {
             ),
             MaterialButton(
               onPressed: resetPassword,
-              child: Text('Reset Password'),
-              color: Colors.deepPurple[200],
+              child: Text(
+                'Reset Password',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              color: Colors.deepPurple,
             ),
           ],
         ));

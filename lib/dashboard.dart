@@ -5,6 +5,8 @@ import 'package:manajemen_spp/bayar.dart';
 import 'package:manajemen_spp/profile.dart';
 import 'package:manajemen_spp/transaksi.dart';
 
+import 'loginpage.dart';
+
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
@@ -17,7 +19,6 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-
     String userEmail = user.email!;
     String username;
 
@@ -37,7 +38,7 @@ class _DashboardState extends State<Dashboard> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Colors.deepPurple,
               borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(50),
               ),
@@ -52,7 +53,7 @@ class _DashboardState extends State<Dashboard> {
                           .textTheme
                           .headlineSmall
                           ?.copyWith(color: Colors.white)),
-                  subtitle: Text('Good Morning',
+                  subtitle: Text('SMAN 1 WATES',
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
@@ -67,7 +68,7 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Colors.deepPurple,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: const BoxDecoration(
@@ -118,9 +119,17 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     );
                   }),
-                  itemDashboard('Log Out', CupertinoIcons.back, Colors.red, () {
+                  itemDashboard('Keluar', CupertinoIcons.back, Colors.red, () {
                     // Add your onPressed logic here for 'Log Out'
-                    FirebaseAuth.instance.signOut();
+                    FirebaseAuth.instance.signOut().then((value) {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                        (route) => false,
+                      );
+                    }).catchError((error) {
+                      print('Logout Error: $error');
+                    });
                   }),
                 ],
               ),

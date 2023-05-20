@@ -31,3 +31,4 @@ flutter:
   assets:
      - assets/logo.png
      - assets/profile.png
+     - assets/bca.png

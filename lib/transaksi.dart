@@ -56,7 +56,7 @@ class _TransaksiState extends State<Transaksi> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 91, 53, 205),
+        backgroundColor: Colors.deepPurple,
         title: Text(
           'Riwayat Transaksi',
           style: TextStyle(
@@ -69,14 +69,14 @@ class _TransaksiState extends State<Transaksi> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Colors.deepPurple,
               borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(50),
               ),
             ),
             child: Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 25),
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
                   title: Text(username,
@@ -84,7 +84,7 @@ class _TransaksiState extends State<Transaksi> {
                           .textTheme
                           .headlineSmall
                           ?.copyWith(color: Colors.white)),
-                  subtitle: Text('Good Morning',
+                  subtitle: Text('SMAN 1 WATES',
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
@@ -119,7 +119,7 @@ class _TransaksiState extends State<Transaksi> {
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.black, //color of border
+                    color: Colors.deepPurple, //color of border
                     width: 2, //width of border
                   ),
                   borderRadius: BorderRadius.circular(5),
@@ -151,7 +151,7 @@ class _TransaksiState extends State<Transaksi> {
               )
           else
             Text(
-              'Tidak ada data image.', // Pesan jika listSiswa kosong
+              'Tidak ada data Transaksi.', // Pesan jika listSiswa kosong
             ),
         ],
       ),
