@@ -1,15 +1,8 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:manajemen_spp/dashboard.dart';
 import 'package:manajemen_spp/repository.dart';
-
-String base64String(File file) {
-  List<int> imageBytes = file.readAsBytesSync();
-  String base64String = base64Encode(imageBytes);
-  return base64String;
-}
 
 class FormBayar extends StatefulWidget {
   const FormBayar({super.key});
