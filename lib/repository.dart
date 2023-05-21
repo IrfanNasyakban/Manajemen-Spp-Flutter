@@ -21,7 +21,7 @@ class Repository {
     } else if (userEmail == 'widia@gmail.com') {
       username = 'Widia Hamsi';
     } else {
-      username = 'Fannisa Nadhira';
+      username = 'Fannisa Nadira';
     }
     
     final response = await http.get(Uri.parse(_baseUrl + '/siswa'));
@@ -38,6 +38,7 @@ class Repository {
   }
 }
 
+// Transaksi
 class RepositoryImage {
   final user = FirebaseAuth.instance.currentUser!;
   final _baseUrl = 'https://645a0ae165bd868e930ef4d8.mockapi.io';
@@ -53,7 +54,7 @@ class RepositoryImage {
     } else if (userEmail == 'widia@gmail.com') {
       username = 'Widia Hamsi';
     } else {
-      username = 'Fannisa Nadhira';
+      username = 'Fannisa Nadira';
     }
     
     final response = await http.get(Uri.parse(_baseUrl + '/transaksi'));

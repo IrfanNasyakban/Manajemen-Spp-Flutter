@@ -18,10 +18,17 @@ class _LoginPageState extends State<LoginPage> {
 
   Future signIn() async {
     try {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+      // Navigasi ke halaman berikutnya setelah login berhasil
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                Dashboard()), // Ganti dengan halaman berikutnya yang ingin ditampilkan setelah login berhasil
+      );
     } on FirebaseAuthException catch (e) {
       print(e);
       showDialog(

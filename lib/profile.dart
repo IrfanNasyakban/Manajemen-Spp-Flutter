@@ -51,7 +51,7 @@ class _MyProfileState extends State<MyProfile> {
     } else if (userEmail == 'widia@gmail.com') {
       username = 'Widia Hamsi';
     } else {
-      username = 'Fannisa Nadhira';
+      username = 'Fannisa Nadira';
     }
 
     return Scaffold(

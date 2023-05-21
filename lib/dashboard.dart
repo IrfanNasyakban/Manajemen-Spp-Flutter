@@ -29,7 +29,7 @@ class _DashboardState extends State<Dashboard> {
     } else if (userEmail == 'widia@gmail.com') {
       username = 'Widia Hamsi';
     } else {
-      username = 'Fannisa Nadhira';
+      username = 'Fannisa Nadira';
     }
 
     return Scaffold(
