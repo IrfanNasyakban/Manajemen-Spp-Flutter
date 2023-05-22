@@ -70,7 +70,7 @@ class _BayarSppState extends State<BayarSpp> {
                   style: TextStyle(fontSize: 15),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 10,
                 ),
                 Text(
                   'Silahkan bayar tagihan SPP melalui Virtual Account berikut',
@@ -78,8 +78,8 @@ class _BayarSppState extends State<BayarSpp> {
                   style: TextStyle(fontSize: 21),
                 ),
                 Container(
-                  width: 100, // Lebar gambar
-                  height: 100,
+                  width: 90, // Lebar gambar
+                  height: 90,
                   child: Image.asset('assets/bca.png'),
                 ),
                 Text(
@@ -89,6 +89,11 @@ class _BayarSppState extends State<BayarSpp> {
                 ),
                 Text(
                   '800080816742469',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15),
+                ),
+                Text(
+                  'Total: Rp. 500.000',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15),
                 ),
