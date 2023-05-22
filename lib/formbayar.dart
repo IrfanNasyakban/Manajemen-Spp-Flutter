@@ -21,6 +21,8 @@ class _FormBayarState extends State<FormBayar> {
   final _textJumlahController = TextEditingController();
   final _textBuktiController = TextEditingController();
 
+  
+
   Future getImage() async {
     final pickedFile = await _picker.pickImage(
       source: ImageSource.gallery,
@@ -39,6 +41,8 @@ class _FormBayarState extends State<FormBayar> {
 
   @override
   Widget build(BuildContext context) {
+    _textJumlahController.text = 500000.toString();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Pembayaran SPP'),
