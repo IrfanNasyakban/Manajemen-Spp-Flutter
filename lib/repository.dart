@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 class Repository {
   final user = FirebaseAuth.instance.currentUser!;
   
-  final _baseUrl = 'https://645a0ae165bd868e930ef4d8.mockapi.io';
+  final _baseUrl = 'http://192.168.0.100:5000';
 
   Future<List<Siswa>> getData() async {
     String userEmail = user.email!;
@@ -39,11 +39,11 @@ class Repository {
 }
 
 // Transaksi
-class RepositoryImage {
+class RepositoryBayar {
   final user = FirebaseAuth.instance.currentUser!;
-  final _baseUrl = 'https://645a0ae165bd868e930ef4d8.mockapi.io';
+  final _baseUrl = 'http://192.168.0.100:5000';
 
-  Future<List<ImageData>> getData() async {
+  Future<List<Bayar>> getData() async {
     String userEmail = user.email!;
     String username;
 
@@ -57,29 +57,29 @@ class RepositoryImage {
       username = 'Fannisa Nadira';
     }
     
-    final response = await http.get(Uri.parse(_baseUrl + '/transaksi'));
+    final response = await http.get(Uri.parse(_baseUrl + '/bayar'));
     if (response.statusCode == 200) {
       final List<dynamic> responseData = json.decode(response.body);
-      final List<ImageData> imageList = responseData
-          .map((json) => ImageData.fromJson(json))
-          .where((image) => image.nama == username)
+      final List<Bayar> bayarList = responseData
+          .map((json) => Bayar.fromJson(json))
+          .where((bayar) => bayar.nama == username)
           .toList();
-      return imageList;
+      return bayarList;
     } else {
       throw Exception('Failed to fetch data');
     }
   }
 
   Future postData(
-      String nama, String kelas, String semester, String jumlah, String bukti) async {
+      String nama, String kelas, String semester, String jumlah, String image) async {
     try {
-      final response = await http.post(Uri.parse(_baseUrl + '/transaksi'),
+      final response = await http.post(Uri.parse(_baseUrl + '/bayar'),
           body: {
             "nama": nama,
             "kelas": kelas,
             "semester": semester,
             "jumlah": jumlah,
-            "bukti": bukti
+            "image": image
           });
 
       if (response.statusCode == 201) {

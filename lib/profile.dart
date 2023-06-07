@@ -138,6 +138,11 @@ class _MyProfileState extends State<MyProfile> {
                         title: 'Alamat',
                         value: siswa.alamat,
                       ),
+                      const SizedBox(height: 20),
+                      ProfileDetailColumn(
+                        title: 'Orang Tua',
+                        value: siswa.ibu,
+                      ),
                     ],
                   ),
               ],

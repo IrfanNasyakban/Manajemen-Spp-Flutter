@@ -13,13 +13,13 @@ class Transaksi extends StatefulWidget {
 class _TransaksiState extends State<Transaksi> {
   final user = FirebaseAuth.instance.currentUser!;
 
-  List<ImageData> listImage = [];
-  RepositoryImage repository = RepositoryImage();
+  List<Bayar> listBayar = [];
+  RepositoryBayar repository = RepositoryBayar();
   bool isLoading = true;
 
   getData() async {
     try {
-      listImage = await repository.getData();
+      listBayar = await repository.getData();
       setState(() {
         isLoading = false;
       });
@@ -28,7 +28,7 @@ class _TransaksiState extends State<Transaksi> {
       print('Error: $error');
       setState(() {
         isLoading = false;
-        listImage = []; // Set listImage ke daftar kosong
+        listBayar = []; // Set listBayar ke daftar kosong
       });
     }
   }
@@ -113,8 +113,8 @@ class _TransaksiState extends State<Transaksi> {
             Center(
               child: CircularProgressIndicator(), // Menampilkan loading spinner
             )
-          else if (listImage.isNotEmpty)
-            for (var image in listImage)
+          else if (listBayar.isNotEmpty)
+            for (var bayar in listBayar)
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
@@ -128,23 +128,23 @@ class _TransaksiState extends State<Transaksi> {
                   children: [
                     ProfileDetailColumn(
                       title: 'Nama',
-                      value: image.nama,
+                      value: bayar.nama,
                     ),
                     ProfileDetailColumn(
                       title: 'Kelas',
-                      value: image.kelas,
+                      value: bayar.kelas,
                     ),
                     ProfileDetailColumn(
                       title: 'Semester',
-                      value: image.semester,
+                      value: bayar.semester,
                     ),
                     ProfileDetailColumn(
                       title: 'Jumlah',
-                      value: image.jumlah,
+                      value: bayar.jumlah,
                     ),
                     ProfileDetailColumn(
                       title: 'Bukti',
-                      value: image.bukti,
+                      value: bayar.image,
                     ),
                   ],
                 ),

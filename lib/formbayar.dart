@@ -14,7 +14,7 @@ class FormBayar extends StatefulWidget {
 class _FormBayarState extends State<FormBayar> {
   File? image;
   final _picker = ImagePicker();
-  RepositoryImage repository = RepositoryImage();
+  RepositoryBayar repository = RepositoryBayar();
   final _textNamaController = TextEditingController();
   final _textKelasController = TextEditingController();
   final _textSemesterController = TextEditingController();
