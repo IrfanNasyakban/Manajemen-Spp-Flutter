@@ -2,6 +2,7 @@ class Siswa {
   String nama;
   String email;
   String kelas;
+  String semester;
   String nis;
   String ttl;
   String alamat;
@@ -21,6 +22,7 @@ class Siswa {
     required this.nama,
     required this.email,
     required this.kelas,
+    required this.semester,
     required this.nis,
     required this.ttl,
     required this.alamat,
@@ -42,6 +44,7 @@ class Siswa {
       nama: json['nama'],
       email: json['email'],
       kelas: json['kelas'],
+      semester: json['semester'],
       nis: json['nis'],
       ttl: json['ttl'],
       alamat: json['alamat'],

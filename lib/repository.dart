@@ -4,13 +4,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:manajemen_spp/models.dart';
 import 'package:http/http.dart' as http;
 
-
 class Repository {
   final user = FirebaseAuth.instance.currentUser!;
-  
+
   final _baseUrl = 'http://192.168.0.100:5000';
 
-  Future<List<Siswa>> getData() async {
+  Future<List<Siswa>> getDataSiswa() async {
     String userEmail = user.email!;
     String username;
 
@@ -23,16 +22,22 @@ class Repository {
     } else {
       username = 'Fannisa Nadira';
     }
-    
-    final response = await http.get(Uri.parse(_baseUrl + '/siswa'));
-    if (response.statusCode == 200) {
-      final List<dynamic> responseData = json.decode(response.body);
-      final List<Siswa> siswaList = responseData
-          .map((json) => Siswa.fromJson(json))
-          .where((siswa) => siswa.nama == username)
-          .toList();
-      return siswaList;
-    } else {
+
+    try {
+      final response = await http.get(Uri.parse(_baseUrl + '/siswa'));
+      if (response.statusCode == 200) {
+        final List<dynamic> responseData = json.decode(response.body);
+        final List<Siswa> siswaList = responseData
+            .map((json) => Siswa.fromJson(json))
+            .where((siswa) => siswa.nama == username)
+            .toList();
+
+        return siswaList;
+      } else {
+        throw Exception('Failed to fetch data');
+      }
+    } catch (error) {
+      print('Error: $error');
       throw Exception('Failed to fetch data');
     }
   }
@@ -56,7 +61,7 @@ class RepositoryBayar {
     } else {
       username = 'Fannisa Nadira';
     }
-    
+
     final response = await http.get(Uri.parse(_baseUrl + '/bayar'));
     if (response.statusCode == 200) {
       final List<dynamic> responseData = json.decode(response.body);
@@ -70,17 +75,16 @@ class RepositoryBayar {
     }
   }
 
-  Future postData(
-      String nama, String kelas, String semester, String jumlah, String image) async {
+  Future postData(String nama, String kelas, String semester, String jumlah,
+      String image) async {
     try {
-      final response = await http.post(Uri.parse(_baseUrl + '/bayar'),
-          body: {
-            "nama": nama,
-            "kelas": kelas,
-            "semester": semester,
-            "jumlah": jumlah,
-            "image": image
-          });
+      final response = await http.post(Uri.parse(_baseUrl + '/bayar'), body: {
+        "nama": nama,
+        "kelas": kelas,
+        "semester": semester,
+        "jumlah": jumlah,
+        "image": image
+      });
 
       if (response.statusCode == 201) {
         return true;

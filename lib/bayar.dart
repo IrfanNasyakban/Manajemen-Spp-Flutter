@@ -73,13 +73,13 @@ class _BayarSppState extends State<BayarSpp> {
                   height: 10,
                 ),
                 Text(
-                  'Silahkan bayar tagihan SPP melalui Virtual Account berikut',
+                  'Silahkan bayar tagihan SPP melalui Virtual Account berikut / Langsung di Sekolah',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 21),
                 ),
                 Container(
                   width: 90, // Lebar gambar
-                  height: 90,
+                  height: 60,
                   child: Image.asset('assets/bca.png'),
                 ),
                 Text(
@@ -126,7 +126,7 @@ class _BayarSppState extends State<BayarSpp> {
             height: 10,
           ),
           Text(
-            'Apabila Sudah Transfer Silahkan tekan Selanjutnya',
+            'Apabila Sudah Bayar Silahkan tekan Selanjutnya',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20),
           ),

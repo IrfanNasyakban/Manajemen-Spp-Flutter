@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:manajemen_spp/dashboard.dart';
 import 'package:manajemen_spp/repository.dart';
+import 'package:manajemen_spp/models.dart';
 
 class FormBayar extends StatefulWidget {
   const FormBayar({super.key});
@@ -21,7 +22,27 @@ class _FormBayarState extends State<FormBayar> {
   final _textJumlahController = TextEditingController();
   final _textBuktiController = TextEditingController();
 
-  
+  List<Siswa> listSiswa = [];
+  Repository repositorySiswa = Repository();
+
+  getDataSiswa() async {
+    try {
+      listSiswa = await repositorySiswa.getDataSiswa();
+      setState(() {});
+    } catch (error) {
+      // Tangani error dengan sesuai, misalnya tampilkan pesan kesalahan
+      print('Error: $error');
+      setState(() {
+        listSiswa = []; // Set listSiswa ke daftar kosong
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDataSiswa();
+  }
 
   Future getImage() async {
     final pickedFile = await _picker.pickImage(
@@ -42,6 +63,15 @@ class _FormBayarState extends State<FormBayar> {
   @override
   Widget build(BuildContext context) {
     _textJumlahController.text = 500000.toString();
+    if (listSiswa.isNotEmpty) {
+      _textNamaController.text = listSiswa[0].nama; // Mengisi nilai nama siswa dari API ke textfield
+    }
+    if (listSiswa.isNotEmpty) {
+      _textKelasController.text = listSiswa[0].kelas; // Mengisi nilai nama siswa dari API ke textfield
+    }
+    if (listSiswa.isNotEmpty) {
+      _textSemesterController.text = listSiswa[0].semester; // Mengisi nilai nama siswa dari API ke textfield
+    }
 
     return Scaffold(
       appBar: AppBar(

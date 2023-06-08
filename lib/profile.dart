@@ -17,9 +17,9 @@ class _MyProfileState extends State<MyProfile> {
   Repository repository = Repository();
   bool isLoading = true;
 
-  getData() async {
+  getDataSiswa() async {
     try {
-      listSiswa = await repository.getData();
+      listSiswa = await repository.getDataSiswa();
       setState(() {
         isLoading = false;
       });
@@ -36,13 +36,14 @@ class _MyProfileState extends State<MyProfile> {
   @override
   void initState() {
     super.initState();
-    getData();
+    getDataSiswa();
   }
 
   @override
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
+    String url = 'http://192.168.0.100:5000/images/';
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
@@ -72,23 +73,24 @@ class _MyProfileState extends State<MyProfile> {
             child: Column(
               children: [
                 const SizedBox(height: 35),
-                ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  title: Text(username,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
-                          ?.copyWith(color: Colors.white)),
-                  subtitle: Text('SMAN 1 WATES',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: Colors.white54)),
-                  trailing: const CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage('assets/profile.png'),
+                for (var siswaImage in listSiswa)
+                  ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+                    title: Text(username,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(color: Colors.white)),
+                    subtitle: Text('SMAN 1 WATES',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(color: Colors.white54)),
+                    trailing: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage(url + siswaImage.image),
+                    ),
                   ),
-                ),
                 const SizedBox(height: 30)
               ],
             ),
@@ -198,10 +200,6 @@ class ProfileDetailColumn extends StatelessWidget {
                 ),
               )
             ],
-          ),
-          Icon(
-            Icons.lock_outline,
-            size: 30,
           ),
         ],
       ),

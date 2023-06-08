@@ -14,12 +14,14 @@ class _TransaksiState extends State<Transaksi> {
   final user = FirebaseAuth.instance.currentUser!;
 
   List<Bayar> listBayar = [];
-  RepositoryBayar repository = RepositoryBayar();
+  RepositoryBayar repositoryBayar = RepositoryBayar();
+  List<Siswa> listSiswa = [];
+  Repository repositorySiswa = Repository();
   bool isLoading = true;
 
   getData() async {
     try {
-      listBayar = await repository.getData();
+      listBayar = await repositoryBayar.getData();
       setState(() {
         isLoading = false;
       });
@@ -33,16 +35,31 @@ class _TransaksiState extends State<Transaksi> {
     }
   }
 
+  getDataSiswa() async {
+    try {
+      listSiswa = await repositorySiswa.getDataSiswa();
+      setState(() {});
+    } catch (error) {
+      // Tangani error dengan sesuai, misalnya tampilkan pesan kesalahan
+      print('Error: $error');
+      setState(() {
+        listSiswa = []; // Set listSiswa ke daftar kosong
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     getData();
+    getDataSiswa();
   }
 
   @override
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
+    String url = 'http://192.168.0.100:5000/images/';
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
@@ -76,24 +93,25 @@ class _TransaksiState extends State<Transaksi> {
             ),
             child: Column(
               children: [
-                const SizedBox(height: 25),
-                ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  title: Text(username,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
-                          ?.copyWith(color: Colors.white)),
-                  subtitle: Text('SMAN 1 WATES',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: Colors.white54)),
-                  trailing: const CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage('assets/profile.png'),
+                const SizedBox(height: 35),
+                for (var siswaImage in listSiswa)
+                  ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+                    title: Text(username,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(color: Colors.white)),
+                    subtitle: Text('SMAN 1 WATES',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(color: Colors.white54)),
+                    trailing: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage(url + siswaImage.image),
+                    ),
                   ),
-                ),
                 const SizedBox(height: 30)
               ],
             ),

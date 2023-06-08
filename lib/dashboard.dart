@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:manajemen_spp/bayar.dart';
 import 'package:manajemen_spp/profile.dart';
 import 'package:manajemen_spp/transaksi.dart';
+import 'package:manajemen_spp/repository.dart';
+import 'package:manajemen_spp/models.dart';
 
 import 'loginpage.dart';
 
@@ -17,10 +19,33 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   final user = FirebaseAuth.instance.currentUser!;
 
+  List<Siswa> listSiswa = [];
+  Repository repository = Repository();
+
+  getDataSiswa() async {
+    try {
+      listSiswa = await repository.getDataSiswa();
+      setState(() {});
+    } catch (error) {
+      // Tangani error dengan sesuai, misalnya tampilkan pesan kesalahan
+      print('Error: $error');
+      setState(() {
+        listSiswa = []; // Set listSiswa ke daftar kosong
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDataSiswa();
+  }
+
   @override
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
+    String url = 'http://192.168.0.100:5000/images/';
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
@@ -45,24 +70,25 @@ class _DashboardState extends State<Dashboard> {
             ),
             child: Column(
               children: [
-                const SizedBox(height: 50),
-                ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  title: Text('Hello ' + username,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
-                          ?.copyWith(color: Colors.white)),
-                  subtitle: Text('SMAN 1 WATES',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: Colors.white54)),
-                  trailing: const CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage('assets/profile.png'),
+                const SizedBox(height: 35),
+                for (var siswaImage in listSiswa)
+                  ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+                    title: Text(username,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(color: Colors.white)),
+                    subtitle: Text('SMAN 1 WATES',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(color: Colors.white54)),
+                    trailing: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage(url + siswaImage.image),
+                    ),
                   ),
-                ),
                 const SizedBox(height: 30)
               ],
             ),
