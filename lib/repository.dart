@@ -1,13 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:manajemen_spp/models.dart';
 import 'package:http/http.dart' as http;
+import 'package:mime/mime.dart';
+import 'package:http_parser/http_parser.dart';
 
 class Repository {
   final user = FirebaseAuth.instance.currentUser!;
 
-  final _baseUrl = 'http://192.168.0.100:5000';
+  final _baseUrl = 'http://192.168.239.32:5000';
 
   Future<List<Siswa>> getDataSiswa() async {
     String userEmail = user.email!;
@@ -46,7 +49,7 @@ class Repository {
 // Transaksi
 class RepositoryBayar {
   final user = FirebaseAuth.instance.currentUser!;
-  final _baseUrl = 'http://192.168.0.100:5000';
+  final _baseUrl = 'http://192.168.239.32:5000';
 
   Future<List<Bayar>> getData() async {
     String userEmail = user.email!;
@@ -72,27 +75,6 @@ class RepositoryBayar {
       return bayarList;
     } else {
       throw Exception('Failed to fetch data');
-    }
-  }
-
-  Future postData(String nama, String kelas, String semester, String jumlah,
-      String image) async {
-    try {
-      final response = await http.post(Uri.parse(_baseUrl + '/bayar'), body: {
-        "nama": nama,
-        "kelas": kelas,
-        "semester": semester,
-        "jumlah": jumlah,
-        "image": image
-      });
-
-      if (response.statusCode == 201) {
-        return true;
-      } else {
-        return false;
-      }
-    } catch (e) {
-      print(e.toString());
     }
   }
 }

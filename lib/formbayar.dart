@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:manajemen_spp/dashboard.dart';
 import 'package:manajemen_spp/repository.dart';
 import 'package:manajemen_spp/models.dart';
+import 'package:http/http.dart' as http;
 
 class FormBayar extends StatefulWidget {
   const FormBayar({super.key});
@@ -20,7 +21,6 @@ class _FormBayarState extends State<FormBayar> {
   final _textKelasController = TextEditingController();
   final _textSemesterController = TextEditingController();
   final _textJumlahController = TextEditingController();
-  final _textBuktiController = TextEditingController();
 
   List<Siswa> listSiswa = [];
   Repository repositorySiswa = Repository();
@@ -38,6 +38,41 @@ class _FormBayarState extends State<FormBayar> {
     }
   }
 
+  Future<bool> postData(String nama, String kelas, String semester, String jumlah, String imagePath) async {
+    try {
+      // Buat objek FormData untuk mengirim data dan file
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse('http://192.168.239.32:5000/bayar'),
+      );
+
+      // Tambahkan field data ke FormData
+      request.fields['nama'] = nama;
+      request.fields['kelas'] = kelas;
+      request.fields['semester'] = semester;
+      request.fields['jumlah'] = jumlah;
+
+      // Tambahkan file ke FormData
+      var file = await http.MultipartFile.fromPath('file', imagePath);
+      request.files.add(file);
+
+      // Kirim permintaan ke API
+      var response = await request.send();
+
+      if (response.statusCode == 201) {
+        // Berhasil mengirim data
+        return true;
+      } else {
+        // Gagal mengirim data
+        return false;
+      }
+    } catch (error) {
+      // Tangani error dengan sesuai, misalnya tampilkan pesan kesalahan
+      print('Error: $error');
+      return false;
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -45,16 +80,12 @@ class _FormBayarState extends State<FormBayar> {
   }
 
   Future getImage() async {
-    final pickedFile = await _picker.pickImage(
-      source: ImageSource.gallery,
-      imageQuality: 80,
-    );
+    final pickedFile =
+        await _picker.pickImage(source: ImageSource.gallery, imageQuality: 80);
 
     if (pickedFile != null) {
-      setState(() {
-        image = File(pickedFile.path);
-        _textBuktiController.text = pickedFile.name;
-      });
+      image = File(pickedFile.path);
+      setState(() {});
     } else {
       print('no image selected');
     }
@@ -64,13 +95,16 @@ class _FormBayarState extends State<FormBayar> {
   Widget build(BuildContext context) {
     _textJumlahController.text = 500000.toString();
     if (listSiswa.isNotEmpty) {
-      _textNamaController.text = listSiswa[0].nama; // Mengisi nilai nama siswa dari API ke textfield
+      _textNamaController.text =
+          listSiswa[0].nama; // Mengisi nilai nama siswa dari API ke textfield
     }
     if (listSiswa.isNotEmpty) {
-      _textKelasController.text = listSiswa[0].kelas; // Mengisi nilai nama siswa dari API ke textfield
+      _textKelasController.text =
+          listSiswa[0].kelas; // Mengisi nilai nama siswa dari API ke textfield
     }
     if (listSiswa.isNotEmpty) {
-      _textSemesterController.text = listSiswa[0].semester; // Mengisi nilai nama siswa dari API ke textfield
+      _textSemesterController.text = listSiswa[0]
+          .semester; // Mengisi nilai nama siswa dari API ke textfield
     }
 
     return Scaffold(
@@ -105,6 +139,7 @@ class _FormBayarState extends State<FormBayar> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20.0),
                       child: TextField(
+                          enabled: false,
                           controller: _textNamaController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
@@ -127,6 +162,7 @@ class _FormBayarState extends State<FormBayar> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20.0),
                       child: TextField(
+                          enabled: false,
                           controller: _textKelasController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
@@ -151,6 +187,7 @@ class _FormBayarState extends State<FormBayar> {
                       child: TextField(
                           controller: _textSemesterController,
                           decoration: InputDecoration(
+                            enabled: false,
                             border: InputBorder.none,
                             hintText: 'Semester',
                           )),
@@ -171,6 +208,7 @@ class _FormBayarState extends State<FormBayar> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20.0),
                       child: TextField(
+                          enabled: false,
                           controller: _textJumlahController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
@@ -218,15 +256,6 @@ class _FormBayarState extends State<FormBayar> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: TextField(
-                      enabled: false,
-                      controller: _textBuktiController,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                      )),
-                ),
                 SizedBox(
                   height: 15,
                 ),
@@ -240,26 +269,52 @@ class _FormBayarState extends State<FormBayar> {
                     Padding(
                       padding: const EdgeInsets.only(left: 25),
                       child: GestureDetector(
-                        onTap: () async {
-                          bool response = await repository.postData(
-                              _textNamaController.text,
-                              _textKelasController.text,
-                              _textSemesterController.text,
-                              _textJumlahController.text,
-                              _textBuktiController.text);
+                        onTap: () {
+                          String nama = _textNamaController.text;
+                          String kelas = _textKelasController.text;
+                          String semester = _textSemesterController.text;
+                          String jumlah = _textJumlahController.text;
 
-                          if (response) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return Dashboard();
+                          postData(nama, kelas, semester, jumlah, image!.path)
+                              .then((success) {
+                            if (success) {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Pesan'),
+                                    content: Text('Data berhasil dikirim'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('OK'),
+                                      ),
+                                    ],
+                                  );
                                 },
-                              ),
-                            );
-                          } else {
-                            print('Post data gagal');
-                          }
+                              );
+                            } else {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Pesan'),
+                                    content: Text('Gagal mengirim data'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('OK'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
+                          });
                         },
                         child: Container(
                           padding: EdgeInsets.only(

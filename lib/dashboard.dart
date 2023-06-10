@@ -45,7 +45,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.0.100:5000/images/';
+    String url = 'http://192.168.239.32:5000/images/';
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
@@ -58,111 +58,114 @@ class _DashboardState extends State<Dashboard> {
     }
 
     return Scaffold(
-      body: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.deepPurple,
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(50),
+      body: Container(
+        color: Color.fromARGB(255, 34, 31, 38),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 40, 26, 63),
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(50),
+                ),
               ),
-            ),
-            child: Column(
-              children: [
-                const SizedBox(height: 35),
-                for (var siswaImage in listSiswa)
-                  ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                    title: Text(username,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(color: Colors.white)),
-                    subtitle: Text('SMAN 1 WATES',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(color: Colors.white54)),
-                    trailing: CircleAvatar(
-                      radius: 30,
-                      backgroundImage: NetworkImage(url + siswaImage.image),
-                    ),
-                  ),
-                const SizedBox(height: 30)
-              ],
-            ),
-          ),
-          Container(
-            color: Colors.deepPurple,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(200)),
-              ),
-              child: GridView.count(
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                crossAxisSpacing: 40,
-                mainAxisSpacing: 30,
+              child: Column(
                 children: [
-                  itemDashboard(
-                      'Profile', CupertinoIcons.person_2, Colors.deepOrange,
-                      () {
-                    // Add your onPressed logic here for 'Profile'
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return MyProfile();
-                        },
+                  const SizedBox(height: 35),
+                  for (var siswaImage in listSiswa)
+                    ListTile(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+                      title: Text(username,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(color: Colors.white)),
+                      subtitle: Text('SMAN 1 WATES',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium
+                              ?.copyWith(color: Colors.white54)),
+                      trailing: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage(url + siswaImage.image),
                       ),
-                    );
-                  }),
-                  itemDashboard(
-                      'Bayar SPP', CupertinoIcons.money_dollar, Colors.green,
-                      () {
-                    // Add your onPressed logic here for 'Bayar SPP'
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return BayarSpp();
-                        },
-                      ),
-                    );
-                  }),
-                  itemDashboard('Transaksi', CupertinoIcons.bag_fill_badge_plus,
-                      Colors.purple, () {
-                    // Add your onPressed logic here for 'Transaction'
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return Transaksi();
-                        },
-                      ),
-                    );
-                  }),
-                  itemDashboard('Keluar', CupertinoIcons.back, Colors.red, () {
-                    // Add your onPressed logic here for 'Log Out'
-                    FirebaseAuth.instance.signOut().then((value) {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                        (route) => false,
-                      );
-                    }).catchError((error) {
-                      print('Logout Error: $error');
-                    });
-                  }),
+                    ),
+                  const SizedBox(height: 20)
                 ],
               ),
             ),
-          ),
-          const SizedBox(height: 20),
-        ],
+            Container(
+              color: Color.fromARGB(255, 40, 26, 63),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 34, 31, 38),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(200)),
+                ),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 40,
+                  mainAxisSpacing: 30,
+                  children: [
+                    itemDashboard(
+                        'Profile', CupertinoIcons.person_2, Colors.deepOrange,
+                        () {
+                      // Add your onPressed logic here for 'Profile'
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return MyProfile();
+                          },
+                        ),
+                      );
+                    }),
+                    itemDashboard(
+                        'Bayar SPP', CupertinoIcons.money_dollar, Colors.green,
+                        () {
+                      // Add your onPressed logic here for 'Bayar SPP'
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return BayarSpp();
+                          },
+                        ),
+                      );
+                    }),
+                    itemDashboard('Transaksi', CupertinoIcons.bag_fill_badge_plus,
+                        Colors.purple, () {
+                      // Add your onPressed logic here for 'Transaction'
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Transaksi();
+                          },
+                        ),
+                      );
+                    }),
+                    itemDashboard('Keluar', CupertinoIcons.back, Colors.red, () {
+                      // Add your onPressed logic here for 'Log Out'
+                      FirebaseAuth.instance.signOut().then((value) {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                          (route) => false,
+                        );
+                      }).catchError((error) {
+                        print('Logout Error: $error');
+                      });
+                    }),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }
@@ -173,7 +176,7 @@ class _DashboardState extends State<Dashboard> {
       onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color.fromARGB(255, 67, 44, 113),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
@@ -198,7 +201,9 @@ class _DashboardState extends State<Dashboard> {
             const SizedBox(height: 8),
             Text(
               title.toUpperCase(),
-              style: Theme.of(context).textTheme.titleMedium,
+              style: TextStyle(
+                color: Colors.white
+              ),
             ),
           ],
         ),
