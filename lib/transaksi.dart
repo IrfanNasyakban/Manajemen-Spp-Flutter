@@ -131,34 +131,42 @@ class _TransaksiState extends State<Transaksi> {
               for (var bayar in listBayar)
                 Padding(
                   padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 40, 26, 63),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 15,
-                        ),
-                        ProfileDetailColumn(
-                          title: 'Nama           : ' + bayar.nama,
-                        ),
-                        ProfileDetailColumn(
-                          title: 'Kelas            : ' + bayar.kelas,
-                        ),
-                        ProfileDetailColumn(
-                          title: 'Semester     : ' + bayar.semester,
-                        ),
-                        ProfileDetailColumn(
-                          title: 'Jumlah         : ' + bayar.jumlah,
-                        ),
-                        ProfileDetailColumn(
-                          title: 'Tanggal        : ' +
-                              bayar.createdAt.substring(0, 10),
-                        ),
-                        ProfileDetailColumnKlik(title: 'Bukti             :'),
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                        Navigator.of(context)
+                          .popAndPushNamed('/bukti', arguments: [
+                        bayar.id.toString(),
+                        bayar.image
+                      ]);
+                      },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 40, 26, 63),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 15,
+                          ),
+                          ProfileDetailColumn(
+                            title: 'Nama           : ' + bayar.nama,
+                          ),
+                          ProfileDetailColumn(
+                            title: 'Kelas            : ' + bayar.kelas,
+                          ),
+                          ProfileDetailColumn(
+                            title: 'Semester     : ' + bayar.semester,
+                          ),
+                          ProfileDetailColumn(
+                            title: 'Jumlah         : ' + bayar.jumlah,
+                          ),
+                          ProfileDetailColumn(
+                            title: 'Tanggal        : ' +
+                                bayar.createdAt.substring(0, 10),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 )
@@ -195,59 +203,6 @@ class ProfileDetailColumn extends StatelessWidget {
         SizedBox(
           width: 354,
         )
-      ],
-    );
-  }
-}
-
-class ProfileDetailColumnKlik extends StatelessWidget {
-  const ProfileDetailColumnKlik({Key? key, required this.title})
-      : super(key: key);
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: Row(
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-              ),
-              SizedBox(width: 5),
-              GestureDetector(
-                onTap: () {
-                  // Aksi yang ingin dilakukan saat teks "Klik Disini" di-tap
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return BuktiBayar();
-                      },
-                    ),
-                  );
-                },
-                child: Text(
-                  'Klik Disini',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: 20),
       ],
     );
   }

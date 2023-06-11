@@ -1,3 +1,4 @@
+import 'package:manajemen_spp/bukti.dart';
 import 'package:manajemen_spp/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
+      routes: {
+        '/bukti': (context) => BuktiBayar(),
+      },
     );
   }
 }
