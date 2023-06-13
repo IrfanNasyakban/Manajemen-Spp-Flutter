@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:manajemen_spp/bukti.dart';
 import 'package:manajemen_spp/dashboard.dart';
 import 'package:manajemen_spp/models.dart';
 import 'package:manajemen_spp/repository.dart';
@@ -20,6 +19,7 @@ class _TransaksiState extends State<Transaksi> {
   List<Siswa> listSiswa = [];
   Repository repositorySiswa = Repository();
   bool isLoading = true;
+  bool isSortAscending = true;
 
   getData() async {
     try {
@@ -48,6 +48,19 @@ class _TransaksiState extends State<Transaksi> {
         listSiswa = []; // Set listSiswa ke daftar kosong
       });
     }
+  }
+
+  void toggleSort() {
+    setState(() {
+      isSortAscending = !isSortAscending;
+      listBayar.sort((a, b) {
+        if (isSortAscending) {
+          return a.createdAt.compareTo(b.createdAt);
+        } else {
+          return b.createdAt.compareTo(a.createdAt);
+        }
+      });
+    });
   }
 
   @override
@@ -135,7 +148,33 @@ class _TransaksiState extends State<Transaksi> {
                 ],
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 10),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    toggleSort();
+                  },
+                  child: Container(
+                    padding:
+                        EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 67, 44, 113),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Text(
+                      'Sorting Tanggal',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+              ],
+            ),
             if (isLoading)
               Center(
                 child:
@@ -147,12 +186,9 @@ class _TransaksiState extends State<Transaksi> {
                   padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
                   child: GestureDetector(
                     onTap: () {
-                        Navigator.of(context)
-                          .popAndPushNamed('/bukti', arguments: [
-                        bayar.id.toString(),
-                        bayar.image
-                      ]);
-                      },
+                      Navigator.of(context).popAndPushNamed('/bukti',
+                          arguments: [bayar.id.toString(), bayar.image]);
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         color: Color.fromARGB(255, 40, 26, 63),
