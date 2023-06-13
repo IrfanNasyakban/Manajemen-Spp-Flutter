@@ -51,19 +51,25 @@ class _LupaPasswordState extends State<LupaPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 34, 31, 38),
         appBar: AppBar(
+          title: Text('Reset Password'),
           backgroundColor: Colors.deepPurple,
           elevation: 0,
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/logo.png'),
+                SizedBox(
+                  height: 45,
+                ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Text(
                 'Masukan Email kamu untuk kami berikan link ubah password',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),
             SizedBox(

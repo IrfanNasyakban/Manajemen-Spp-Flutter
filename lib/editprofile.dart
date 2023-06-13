@@ -305,197 +305,516 @@ class _EditProfileState extends State<EditProfile> {
                   SizedBox(
                     height: 15,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 280),
-                    child: Text(
-                      'Nama :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 27.0),
+                        child: Text(
+                          'Nama :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
-                    ),
+                      SizedBox(width: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 107.0),
+                        child: Text(
+                          'Email :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
-                    height: 8,
+                    height: 4,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 57, 44, 89),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                enabled: false,
+                                controller: _textNamaController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Nama',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 57, 44, 89),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                enabled: false,
+                                style: TextStyle(color: Colors.white),
+                                controller: _textEmailController,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Email',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 27.0),
+                        child: Text(
+                          'Kelas :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            enabled: false,
-                            controller: _textNamaController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Nama',
-                            )),
+                      SizedBox(width: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 112.0),
+                        child: Text(
+                          'Semester :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 57, 44, 89),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                enabled: false,
+                                controller: _textKelasController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Kelas',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 57, 44, 89),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                enabled: false,
+                                controller: _textSemesterController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Semester',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 27.0),
+                        child: Text(
+                          'NIS :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 129.0),
+                        child: Text(
+                          'Wali Kelas :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 57, 44, 89),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                enabled: false,
+                                controller: _textNisController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Nis',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 57, 44, 89),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                enabled: false,
+                                controller: _textWaliKelasController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Wali Kelas',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 27.0),
+                        child: Text(
+                          'Alamat :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 97.0),
+                        child: Text(
+                          'No Hp :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 88, 52, 169),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                controller: _textAlamatController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Alamat',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 88, 52, 169),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                controller: _textNoHpController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'No Hp',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 27.0),
+                        child: Text(
+                          'Nama Ayah :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 58.0),
+                        child: Text(
+                          'Pekerjaan Ayah :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 88, 52, 169),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                controller: _textAyahController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Nama Ayah',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 88, 52, 169),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                controller: _textPekerjaanAyahController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Pekerjaan Ayah',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 27.0),
+                        child: Text(
+                          'Nama Ibu :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 74.0),
+                        child: Text(
+                          'Pekerjaan Ibu :',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 88, 52, 169),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                controller: _textIbuController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Nama Ibu',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 88, 52, 169),
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: TextField(
+                                controller: _textPekerjaanIbuController,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Pekerjaan Ibu',
+                                  contentPadding: EdgeInsets.only(left: -10, bottom: 8)
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 285),
-                    child: Text(
-                      'Email :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            enabled: false,
-                            controller: _textEmailController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Email',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 285),
-                    child: Text(
-                      'Kelas :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: _textKelasController,
-                            decoration: InputDecoration(
-                              enabled: false,
-                              border: InputBorder.none,
-                              hintText: 'Kelas',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 240),
-                    child: Text(
-                      'Semester :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: _textSemesterController,
-                            decoration: InputDecoration(
-                              enabled: false,
-                              border: InputBorder.none,
-                              hintText: 'Semester',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 305),
-                    child: Text(
-                      'NIS :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            enabled: false,
-                            controller: _textNisController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'NIS',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 110),
+                    padding: const EdgeInsets.only(right: 153),
                     child: Text(
                       'Tempat Tanggal Lahir :',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         color: Colors.white,
                       ),
                     ),
@@ -506,278 +825,27 @@ class _EditProfileState extends State<EditProfile> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
+                      height: 40, 
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Color.fromARGB(255, 88, 52, 169),
                         border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextField(
-                            style: TextStyle(fontSize: 20),
                             controller: _textTtlController,
+                            style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: 'TTL',
+                              hintText: 'Tempat Tanggal Lahir',
+                              contentPadding: EdgeInsets.only(left: -10, bottom: 8)
                             )),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 260),
-                    child: Text(
-                      'Alamat :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: _textAlamatController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Alamat',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 230),
-                    child: Text(
-                      'Wali Kelas :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            enabled: false,
-                            controller: _textWaliKelasController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Wali Kelas',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 220),
-                    child: Text(
-                      'Nama Ayah :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: _textAyahController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Ayah',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 180),
-                    child: Text(
-                      'Pekerjaan Ayah :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: _textPekerjaanAyahController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Pekerjaan Ayah',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 240),
-                    child: Text(
-                      'Nama Ibu :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: _textIbuController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Ibu',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 200),
-                    child: Text(
-                      'Pekerjaan Ibu :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: _textPekerjaanIbuController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Pekerjaan Ibu',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 276),
-                    child: Text(
-                      'No HP :',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: _textNoHpController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'No HP',
-                            )),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Row(
                     children: [

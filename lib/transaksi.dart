@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:manajemen_spp/bukti.dart';
+import 'package:manajemen_spp/dashboard.dart';
 import 'package:manajemen_spp/models.dart';
 import 'package:manajemen_spp/repository.dart';
 
@@ -80,6 +81,19 @@ class _TransaksiState extends State<Transaksi> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return Dashboard();
+                },
+              ),
+            );
+          },
         ),
       ),
       body: Container(

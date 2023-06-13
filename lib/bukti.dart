@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:manajemen_spp/repository.dart';
 import 'package:manajemen_spp/models.dart';
+import 'package:manajemen_spp/transaksi.dart';
 
 class BuktiBayar extends StatefulWidget {
   const BuktiBayar({super.key});
@@ -84,6 +85,19 @@ class _BuktiBayarState extends State<BuktiBayar> {
           ),
         ),
         backgroundColor: Color.fromARGB(255, 40, 26, 63),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return Transaksi();
+                },
+              ),
+            );
+          },
+        ),
       ),
       body: Container(
         color: Color.fromARGB(255, 34, 31, 38),
@@ -227,11 +241,11 @@ class _BuktiBayarState extends State<BuktiBayar> {
                         SizedBox(
                           height: 10,
                         ),
-                          Container(
-                            width: 200, // Lebar gambar
-                            height: 150,
-                            child: Image.network(url + _imageController.text),
-                          ),
+                        Container(
+                          width: 200, // Lebar gambar
+                          height: 150,
+                          child: Image.network(url + _imageController.text),
+                        ),
                       ],
                     ),
                   ),

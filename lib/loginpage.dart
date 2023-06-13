@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Color.fromARGB(255, 34, 31, 38),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -69,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 36,
+                    color: Colors.white
                   ),
                 ),
                 SizedBox(
@@ -78,6 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Manajemen SPP SMAN 1 WATES',
                   style: TextStyle(
                     fontSize: 24,
+                    color: Colors.white
                   ),
                 ),
                 SizedBox(
@@ -168,6 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                       'Lupa Password?',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        color: Colors.white
                       ),
                     ),
                     GestureDetector(

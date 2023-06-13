@@ -38,7 +38,8 @@ class _FormBayarState extends State<FormBayar> {
     }
   }
 
-  Future<bool> postData(String nama, String kelas, String semester, String jumlah, String imagePath) async {
+  Future<bool> postData(String nama, String kelas, String semester,
+      String jumlah, String imagePath) async {
     try {
       // Buat objek FormData untuk mengirim data dan file
       var request = http.MultipartRequest(
@@ -110,264 +111,278 @@ class _FormBayarState extends State<FormBayar> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pembayaran SPP'),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Color.fromARGB(255, 40, 26, 63),
       ),
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Silahkan Input Data Pembayaran',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
+      body: Container(
+        color: Color.fromARGB(255, 34, 31, 38),
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Silahkan Input Data Pembayaran',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Colors.white),
                   ),
-                ),
-                SizedBox(
-                  height: 35,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextField(
-                          enabled: false,
-                          controller: _textNamaController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Nama',
-                          )),
-                    ),
+                  SizedBox(
+                    height: 35,
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextField(
-                          enabled: false,
-                          controller: _textKelasController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Kelas',
-                          )),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextField(
-                          controller: _textSemesterController,
-                          decoration: InputDecoration(
-                            enabled: false,
-                            border: InputBorder.none,
-                            hintText: 'Semester',
-                          )),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextField(
-                          enabled: false,
-                          controller: _textJumlahController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Jumlah',
-                          )),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 260),
-                  child: GestureDetector(
-                    onTap: () {
-                      getImage();
-                    },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
-                      child: image == null
-                          ? Container(
-                              padding: EdgeInsets.only(
-                                  left: 15, right: 15, top: 10, bottom: 10),
-                              decoration: BoxDecoration(
-                                color: Colors.deepPurple[200],
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Text(
-                                'Pick Image',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            )
-                          : Container(
-                              child: Center(
-                                child: Image.file(
-                                  File(image!.path).absolute,
-                                  height: 100,
-                                  width: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 57, 44, 89),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextField(
+                            style: TextStyle(color: Colors.white),
+                            enabled: false,
+                            controller: _textNamaController,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Nama',
+                            )),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 57, 44, 89),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextField(
+                            enabled: false,
+                            style: TextStyle(color: Colors.white),
+                            controller: _textKelasController,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Kelas',
+                            )),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 57, 44, 89),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextField(
+                            style: TextStyle(color: Colors.white),
+                            controller: _textSemesterController,
+                            decoration: InputDecoration(
+                              enabled: false,
+                              border: InputBorder.none,
+                              hintText: 'Semester',
+                            )),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 57, 44, 89),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextField(
+                            enabled: false,
+                            style: TextStyle(color: Colors.white),
+                            controller: _textJumlahController,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Jumlah',
+                            )),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 260),
+                    child: GestureDetector(
+                      onTap: () {
+                        getImage();
+                      },
+                      child: Container(
+                        child: image == null
+                            ? Container(
+                                padding: EdgeInsets.only(
+                                    left: 15, right: 15, top: 10, bottom: 10),
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 67, 44, 113),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Text(
+                                  'Pick Image',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              )
+                            : Container(
+                                child: Center(
+                                  child: Image.file(
+                                    File(image!.path).absolute,
+                                    height: 100,
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
 
-                // Sign in Button
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25),
-                      child: GestureDetector(
-                        onTap: () {
-                          String nama = _textNamaController.text;
-                          String kelas = _textKelasController.text;
-                          String semester = _textSemesterController.text;
-                          String jumlah = _textJumlahController.text;
+                  // Sign in Button
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25),
+                        child: GestureDetector(
+                          onTap: () {
+                            String nama = _textNamaController.text;
+                            String kelas = _textKelasController.text;
+                            String semester = _textSemesterController.text;
+                            String jumlah = _textJumlahController.text;
 
-                          postData(nama, kelas, semester, jumlah, image!.path)
-                              .then((success) {
-                            if (success) {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text('Pesan'),
-                                    content: Text('Data berhasil dikirim'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            } else {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text('Pesan'),
-                                    content: Text('Gagal mengirim data'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
-                          });
-                        },
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: 65, right: 65, top: 20, bottom: 20),
-                          decoration: BoxDecoration(
-                            color: Colors.deepPurple,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Text(
-                            'Kirim',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                            postData(nama, kelas, semester, jumlah, image!.path)
+                                .then((success) {
+                              if (success) {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text('Pesan'),
+                                      content: Text('Data berhasil dikirim'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) {
+                                                  return Dashboard();
+                                                },
+                                              ),
+                                            );
+                                          },
+                                          child: Text('OK'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              } else {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text('Pesan'),
+                                      content: Text('Gagal mengirim data'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Text('OK'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              }
+                            });
+                          },
+                          child: Container(
+                            padding: EdgeInsets.only(
+                                left: 65, right: 65, top: 20, bottom: 20),
+                            decoration: BoxDecoration(
+                              color: Colors.deepPurple,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(
+                              'Kirim',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return Dashboard();
-                              },
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return Dashboard();
+                                },
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.only(
+                                left: 55, right: 55, top: 20, bottom: 20),
+                            decoration: BoxDecoration(
+                              color: Colors.deepPurple,
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                          );
-                        },
-                        child: Container(
-                          padding: EdgeInsets.only(
-                              left: 55, right: 55, top: 20, bottom: 20),
-                          decoration: BoxDecoration(
-                            color: Colors.deepPurple,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Text(
-                            'Kembali',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                            child: Text(
+                              'Kembali',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -77,6 +77,19 @@ class _MyProfileState extends State<MyProfile> {
       appBar: AppBar(
         title: Text('Profile'),
         backgroundColor: Color.fromARGB(255, 40, 26, 63),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return Dashboard();
+                },
+              ),
+            );
+          },
+        ),
       ),
       body: Container(
         color: Color.fromARGB(255, 34, 31, 38),
@@ -173,7 +186,7 @@ class _MyProfileState extends State<MyProfile> {
                           title: 'Pekerjaan        : ' + siswa.pekerjaan_ibu,
                         ),
                         ProfileDetailColumn(
-                          title: 'No. HP              : ' + siswa.no_hp,
+                          title: 'No. HP             : ' + siswa.no_hp,
                         ),
                       ],
                     ),
@@ -193,13 +206,13 @@ class _MyProfileState extends State<MyProfile> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return EditProfile();
-                              },
-                            ),
-                          );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return EditProfile();
+                          },
+                        ),
+                      );
                     },
                     child: Container(
                       padding: EdgeInsets.only(
@@ -224,13 +237,13 @@ class _MyProfileState extends State<MyProfile> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return Dashboard();
-                              },
-                            ),
-                          );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Dashboard();
+                          },
+                        ),
+                      );
                     },
                     child: Container(
                       padding: EdgeInsets.only(

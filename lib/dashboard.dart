@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:manajemen_spp/bayar.dart';
 import 'package:manajemen_spp/profile.dart';
 import 'package:manajemen_spp/transaksi.dart';
@@ -8,6 +11,7 @@ import 'package:manajemen_spp/repository.dart';
 import 'package:manajemen_spp/models.dart';
 
 import 'loginpage.dart';
+import 'main.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -37,6 +41,30 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   void initState() {
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = notification?.android;
+      if (notification != null && android != null && !kIsWeb) {
+        flutterLocalNotificationsPlugin.show(
+          notification.hashCode,
+          notification.title,
+          notification.body,
+          NotificationDetails(
+            android: AndroidNotificationDetails(
+              channel!.id,
+              channel!.name,
+              // channel!.description,
+              icon: 'launch_background',
+            ),
+          ),
+        );
+      }
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print('Notif cliked!!');
+    });
+
     super.initState();
     getDataSiswa();
   }
@@ -75,7 +103,8 @@ class _DashboardState extends State<Dashboard> {
                   const SizedBox(height: 35),
                   for (var siswaImage in listSiswa)
                     ListTile(
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 30),
                       title: Text(username,
                           style: Theme.of(context)
                               .textTheme
@@ -101,7 +130,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 34, 31, 38),
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(200)),
+                  borderRadius:
+                      BorderRadius.only(topLeft: Radius.circular(200)),
                 ),
                 child: GridView.count(
                   shrinkWrap: true,
@@ -135,8 +165,8 @@ class _DashboardState extends State<Dashboard> {
                         ),
                       );
                     }),
-                    itemDashboard('Transaksi', CupertinoIcons.bag_fill_badge_plus,
-                        Colors.purple, () {
+                    itemDashboard('Transaksi',
+                        CupertinoIcons.bag_fill_badge_plus, Colors.purple, () {
                       // Add your onPressed logic here for 'Transaction'
                       Navigator.push(
                         context,
@@ -147,7 +177,8 @@ class _DashboardState extends State<Dashboard> {
                         ),
                       );
                     }),
-                    itemDashboard('Keluar', CupertinoIcons.back, Colors.red, () {
+                    itemDashboard('Keluar', CupertinoIcons.back, Colors.red,
+                        () {
                       // Add your onPressed logic here for 'Log Out'
                       FirebaseAuth.instance.signOut().then((value) {
                         Navigator.pushAndRemoveUntil(
@@ -201,9 +232,7 @@ class _DashboardState extends State<Dashboard> {
             const SizedBox(height: 8),
             Text(
               title.toUpperCase(),
-              style: TextStyle(
-                color: Colors.white
-              ),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
