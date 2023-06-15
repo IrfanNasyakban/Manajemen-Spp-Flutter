@@ -74,7 +74,7 @@ class _TransaksiState extends State<Transaksi> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.239.32:5000/images/';
+    String url = 'http://192.168.154.32:5000/images/';
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
@@ -88,7 +88,7 @@ class _TransaksiState extends State<Transaksi> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 40, 26, 63),
+        backgroundColor: Color.fromARGB(255, 53, 17, 110),
         title: Text(
           'Riwayat Transaksi',
           style: TextStyle(
@@ -116,7 +116,7 @@ class _TransaksiState extends State<Transaksi> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 40, 26, 63),
+                color: Color.fromARGB(255, 53, 17, 110),
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(50),
                   bottomLeft: Radius.circular(50),
@@ -164,7 +164,7 @@ class _TransaksiState extends State<Transaksi> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
-                      'Sorting Tanggal',
+                      'Sortir Tanggal',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
@@ -191,7 +191,7 @@ class _TransaksiState extends State<Transaksi> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 40, 26, 63),
+                        color: Color.fromARGB(255, 52, 19, 104),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Column(

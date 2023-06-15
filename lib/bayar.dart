@@ -15,7 +15,7 @@ class _BayarSppState extends State<BayarSpp> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pembayaran SPP'),
-        backgroundColor: Color.fromARGB(255, 40, 26, 63),
+        backgroundColor: Color.fromARGB(255, 53, 17, 110),
       ),
       body: Container(
         color: Color.fromARGB(255, 34, 31, 38),

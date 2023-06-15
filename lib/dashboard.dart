@@ -73,7 +73,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.239.32:5000/images/';
+    String url = 'http://192.168.154.32:5000/images/';
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
@@ -93,7 +93,7 @@ class _DashboardState extends State<Dashboard> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 40, 26, 63),
+                color: Color.fromARGB(255, 53, 17, 110),
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(50),
                 ),
@@ -125,7 +125,7 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
             Container(
-              color: Color.fromARGB(255, 40, 26, 63),
+              color: Color.fromARGB(255, 53, 17, 110),
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 decoration: const BoxDecoration(
@@ -207,7 +207,7 @@ class _DashboardState extends State<Dashboard> {
       onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 67, 44, 113),
+          color: Color.fromARGB(255, 84, 28, 173),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(

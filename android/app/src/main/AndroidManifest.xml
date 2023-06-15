@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.manajemen_spp">
    <application
-        android:label="manajemen_spp"
+        android:label="eSPPay"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -88,7 +88,7 @@ class _EditProfileState extends State<EditProfile> {
     try {
       var request = http.MultipartRequest(
         'PATCH',
-        Uri.parse('http://192.168.239.32:5000/siswa/$id'),
+        Uri.parse('http://192.168.154.32:5000/siswa/$id'),
       );
 
       request.fields['nama'] = nama;
@@ -127,7 +127,7 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.239.32:5000/images/';
+    String url = 'http://192.168.154.32:5000/images/';
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
@@ -203,7 +203,7 @@ class _EditProfileState extends State<EditProfile> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 40, 26, 63),
+                      color: Color.fromARGB(255, 53, 17, 110),
                       borderRadius: const BorderRadius.only(
                         bottomRight: Radius.circular(50),
                         bottomLeft: Radius.circular(50),
@@ -237,7 +237,7 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 40, 26, 63),
+                      color: Color.fromARGB(255, 53, 17, 110),
                       borderRadius: const BorderRadius.only(
                         bottomRight: Radius.circular(30),
                         bottomLeft: Radius.circular(30),

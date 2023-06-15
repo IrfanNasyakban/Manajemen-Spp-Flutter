@@ -61,7 +61,7 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.239.32:5000/images/';
+    String url = 'http://192.168.154.32:5000/images/';
 
     if (userEmail == 'irfan@gmail.com') {
       username = 'Irvan Nasyakban';
@@ -76,7 +76,7 @@ class _MyProfileState extends State<MyProfile> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
-        backgroundColor: Color.fromARGB(255, 40, 26, 63),
+        backgroundColor: Color.fromARGB(255, 53, 17, 110),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -98,7 +98,7 @@ class _MyProfileState extends State<MyProfile> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 40, 26, 63),
+                color: Color.fromARGB(255, 53, 17, 110),
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(50),
                 ),
@@ -141,7 +141,7 @@ class _MyProfileState extends State<MyProfile> {
                   padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 40, 26, 63),
+                      color: Color.fromARGB(255, 52, 19, 104),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(

@@ -44,7 +44,7 @@ class _FormBayarState extends State<FormBayar> {
       // Buat objek FormData untuk mengirim data dan file
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse('http://192.168.239.32:5000/bayar'),
+        Uri.parse('http://192.168.154.32:5000/bayar'),
       );
 
       // Tambahkan field data ke FormData
@@ -111,7 +111,7 @@ class _FormBayarState extends State<FormBayar> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pembayaran SPP'),
-        backgroundColor: Color.fromARGB(255, 40, 26, 63),
+        backgroundColor: Color.fromARGB(255, 53, 17, 110),
       ),
       body: Container(
         color: Color.fromARGB(255, 34, 31, 38),
