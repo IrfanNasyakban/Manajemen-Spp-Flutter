@@ -20,6 +20,18 @@ class _BuktiBayarState extends State<BuktiBayar> {
   RepositoryBayar repositoryBayar = RepositoryBayar();
   final _imageController = TextEditingController();
 
+  Color _getStatusColor(String status) {
+    if (status == 'ON PROGRESSING') {
+      return Colors.yellow;
+    } else if (status == 'BELUM LUNAS') {
+      return Colors.red;
+    } else if (status == 'LUNAS') {
+      return Colors.green;
+    } else {
+      return Colors.black; // warna default jika tidak ada status yang cocok
+    }
+  }
+
   getDataSiswa() async {
     try {
       listSiswa = await repository.getDataSiswa();
@@ -57,13 +69,13 @@ class _BuktiBayarState extends State<BuktiBayar> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.154.32:5000/images/';
+    String url = 'http://192.168.51.32:5000/images/';
 
-    if (userEmail == 'irfan@gmail.com') {
+    if (userEmail == '210180187@siswa.ac.id') {
       username = 'Irvan Nasyakban';
-    } else if (userEmail == 'ari@gmail.com') {
+    } else if (userEmail == '210180197@siswa.ac.id') {
       username = 'Muhammad Ariansyah';
-    } else if (userEmail == 'widia@gmail.com') {
+    } else if (userEmail == '210180184@siswa.ac.id') {
       username = 'Widia Hamsi';
     } else {
       username = 'Fannisa Nadira';
@@ -228,15 +240,16 @@ class _BuktiBayarState extends State<BuktiBayar> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        'ON PROGRESSING',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.yellow,
+                      for (var bayar in listBayar)
+                        Text(
+                          bayar.status.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: _getStatusColor(bayar.status.toUpperCase()),
+                          ),
                         ),
-                      ),
                       SizedBox(
                         height: 10,
                       ),

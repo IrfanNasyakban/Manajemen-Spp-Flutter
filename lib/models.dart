@@ -68,6 +68,7 @@ class Bayar {
   String kelas;
   String semester;
   String jumlah;
+  String status;
   String image;
   String createdAt;
   int id;
@@ -77,6 +78,7 @@ class Bayar {
     required this.kelas,
     required this.semester,
     required this.jumlah,
+    required this.status,
     required this.image,
     required this.createdAt,
     required this.id,
@@ -88,6 +90,7 @@ class Bayar {
       kelas: json['kelas'],
       semester: json['semester'],
       jumlah: json['jumlah'],
+      status: json['status'],
       image: json['image'],
       createdAt: json['createdAt'],
       id: json['id'],

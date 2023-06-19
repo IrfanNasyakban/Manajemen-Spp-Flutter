@@ -10,17 +10,17 @@ import 'package:http_parser/http_parser.dart';
 class Repository {
   final user = FirebaseAuth.instance.currentUser!;
 
-  final _baseUrl = 'http://192.168.154.32:5000';
+  final _baseUrl = 'http://192.168.51.32:5000';
 
   Future<List<Siswa>> getDataSiswa() async {
     String userEmail = user.email!;
     String username;
 
-    if (userEmail == 'irfan@gmail.com') {
+    if (userEmail == '210180187@siswa.ac.id') {
       username = 'Irvan Nasyakban';
-    } else if (userEmail == 'ari@gmail.com') {
+    } else if (userEmail == '210180197@siswa.ac.id') {
       username = 'Muhammad Ariansyah';
-    } else if (userEmail == 'widia@gmail.com') {
+    } else if (userEmail == '210180184@siswa.ac.id') {
       username = 'Widia Hamsi';
     } else {
       username = 'Fannisa Nadira';
@@ -49,17 +49,17 @@ class Repository {
 // Transaksi
 class RepositoryBayar {
   final user = FirebaseAuth.instance.currentUser!;
-  final _baseUrl = 'http://192.168.154.32:5000';
+  final _baseUrl = 'http://192.168.51.32:5000';
 
   Future<List<Bayar>> getData() async {
     String userEmail = user.email!;
     String username;
 
-    if (userEmail == 'irfan@gmail.com') {
+    if (userEmail == '210180187@siswa.ac.id') {
       username = 'Irvan Nasyakban';
-    } else if (userEmail == 'ari@gmail.com') {
+    } else if (userEmail == '210180197@siswa.ac.id') {
       username = 'Muhammad Ariansyah';
-    } else if (userEmail == 'widia@gmail.com') {
+    } else if (userEmail == '210180184@siswa.ac.id') {
       username = 'Widia Hamsi';
     } else {
       username = 'Fannisa Nadira';

@@ -73,13 +73,13 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.154.32:5000/images/';
+    String url = 'http://192.168.51.32:5000/images/';
 
-    if (userEmail == 'irfan@gmail.com') {
+    if (userEmail == '210180187@siswa.ac.id') {
       username = 'Irvan Nasyakban';
-    } else if (userEmail == 'ari@gmail.com') {
+    } else if (userEmail == '210180197@siswa.ac.id') {
       username = 'Muhammad Ariansyah';
-    } else if (userEmail == 'widia@gmail.com') {
+    } else if (userEmail == '210180184@siswa.ac.id') {
       username = 'Widia Hamsi';
     } else {
       username = 'Fannisa Nadira';

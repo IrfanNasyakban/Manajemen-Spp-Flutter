@@ -44,7 +44,7 @@ class _FormBayarState extends State<FormBayar> {
       // Buat objek FormData untuk mengirim data dan file
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse('http://192.168.154.32:5000/bayar'),
+        Uri.parse('http://192.168.51.32:5000/bayar'),
       );
 
       // Tambahkan field data ke FormData

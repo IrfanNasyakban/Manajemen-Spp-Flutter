@@ -74,13 +74,13 @@ class _TransaksiState extends State<Transaksi> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.154.32:5000/images/';
+    String url = 'http://192.168.51.32:5000/images/';
 
-    if (userEmail == 'irfan@gmail.com') {
+    if (userEmail == '210180187@siswa.ac.id') {
       username = 'Irvan Nasyakban';
-    } else if (userEmail == 'ari@gmail.com') {
+    } else if (userEmail == '210180197@siswa.ac.id') {
       username = 'Muhammad Ariansyah';
-    } else if (userEmail == 'widia@gmail.com') {
+    } else if (userEmail == '210180184@siswa.ac.id') {
       username = 'Widia Hamsi';
     } else {
       username = 'Fannisa Nadira';
@@ -149,31 +149,44 @@ class _TransaksiState extends State<Transaksi> {
               ),
             ),
             const SizedBox(height: 10),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    toggleSort();
-                  },
-                  child: Container(
-                    padding:
-                        EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 67, 44, 113),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      'Sortir Tanggal',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
+            Padding(
+              padding: EdgeInsets.only(left: 125, right: 135),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      toggleSort();
+                    },
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          left: 15, right: 15, top: 10, bottom: 10),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 67, 44, 113),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Sortir Tanggal',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
+                          ),
+                          Icon(
+                            isSortAscending
+                                ? Icons.arrow_downward
+                                : Icons.arrow_upward,
+                            color: Colors.white,
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 10),
-              ],
+                  const SizedBox(height: 10),
+                ],
+              ),
             ),
             if (isLoading)
               Center(
@@ -223,6 +236,9 @@ class _TransaksiState extends State<Transaksi> {
             else
               Text(
                 'Tidak ada data Transaksi.', // Pesan jika listSiswa kosong
+                style: TextStyle(
+                  color: Colors.white
+                ),
               ),
           ],
         ),
