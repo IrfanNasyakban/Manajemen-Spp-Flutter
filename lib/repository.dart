@@ -10,7 +10,7 @@ import 'package:http_parser/http_parser.dart';
 class Repository {
   final user = FirebaseAuth.instance.currentUser!;
 
-  final _baseUrl = 'http://192.168.51.32:5000';
+  final _baseUrl = 'http://192.168.128.32:5000';
 
   Future<List<Siswa>> getDataSiswa() async {
     String userEmail = user.email!;
@@ -49,7 +49,7 @@ class Repository {
 // Transaksi
 class RepositoryBayar {
   final user = FirebaseAuth.instance.currentUser!;
-  final _baseUrl = 'http://192.168.51.32:5000';
+  final _baseUrl = 'http://192.168.128.32:5000';
 
   Future<List<Bayar>> getData() async {
     String userEmail = user.email!;

@@ -19,6 +19,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
   List<Bayar> listBayar = [];
   RepositoryBayar repositoryBayar = RepositoryBayar();
   final _imageController = TextEditingController();
+  final _statusController = TextEditingController();
 
   Color _getStatusColor(String status) {
     if (status == 'ON PROGRESSING') {
@@ -69,7 +70,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.51.32:5000/images/';
+    String url = 'http://192.168.128.32:5000/images/';
 
     if (userEmail == '210180187@siswa.ac.id') {
       username = 'Irvan Nasyakban';
@@ -84,6 +85,9 @@ class _BuktiBayarState extends State<BuktiBayar> {
     final args = ModalRoute.of(context)!.settings.arguments as List<String>;
     if (args[1].isNotEmpty) {
       _imageController.text = args[1];
+    }
+    if (args[2].isNotEmpty) {
+      _statusController.text = args[2];
     }
 
     return Scaffold(
@@ -240,16 +244,16 @@ class _BuktiBayarState extends State<BuktiBayar> {
                       SizedBox(
                         height: 10,
                       ),
-                      for (var bayar in listBayar)
-                        Text(
-                          bayar.status.toUpperCase(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: _getStatusColor(bayar.status.toUpperCase()),
-                          ),
+                      Text(
+                        _statusController.text.toUpperCase(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: _getStatusColor(
+                              _statusController.text.toUpperCase()),
                         ),
+                      ),
                       SizedBox(
                         height: 10,
                       ),

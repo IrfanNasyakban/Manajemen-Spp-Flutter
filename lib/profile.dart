@@ -61,7 +61,7 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.51.32:5000/images/';
+    String url = 'http://192.168.128.32:5000/images/';
 
     if (userEmail == '210180187@siswa.ac.id') {
       username = 'Irvan Nasyakban';
