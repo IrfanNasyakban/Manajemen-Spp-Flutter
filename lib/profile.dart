@@ -61,7 +61,7 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     String userEmail = user.email!;
     String username;
-    String url = 'http://192.168.128.32:5000/images/';
+    String url = 'http://192.168.212.32:5000/images/';
 
     if (userEmail == '210180187@siswa.ac.id') {
       username = 'Irvan Nasyakban';
@@ -69,6 +69,14 @@ class _MyProfileState extends State<MyProfile> {
       username = 'Muhammad Ariansyah';
     } else if (userEmail == '210180184@siswa.ac.id') {
       username = 'Widia Hamsi';
+    } else if (userEmail == '210180100@siswa.ac.id') {
+      username = 'Deny Andrian';
+    } else if (userEmail == '210180101@siswa.ac.id') {
+      username = 'Fata Albana';
+    } else if (userEmail == '210180102@siswa.ac.id') {
+      username = 'Zulfikri';
+    } else if (userEmail == '210180103@siswa.ac.id') {
+      username = 'Agil';
     } else {
       username = 'Fannisa Nadira';
     }
