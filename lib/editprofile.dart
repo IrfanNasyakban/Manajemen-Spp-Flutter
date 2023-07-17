@@ -202,7 +202,7 @@ class _EditProfileState extends State<EditProfile> {
 
     return Scaffold(
       body: Container(
-        color: Color.fromARGB(255, 34, 31, 38),
+        color: Color(0xFFE5E7A9),
         child: SafeArea(
           child: Center(
             child: SingleChildScrollView(
@@ -211,7 +211,8 @@ class _EditProfileState extends State<EditProfile> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 53, 17, 110),
+                      color: Color(0xFfB9E45E),
+                      border: Border.all(color: Colors.black),
                       borderRadius: const BorderRadius.only(
                         bottomRight: Radius.circular(50),
                         bottomLeft: Radius.circular(50),
@@ -228,12 +229,12 @@ class _EditProfileState extends State<EditProfile> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .headlineSmall
-                                    ?.copyWith(color: Colors.white)),
+                                    ?.copyWith(color: Colors.black)),
                             subtitle: Text('SMAN 1 WATES',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleMedium
-                                    ?.copyWith(color: Colors.white54)),
+                                    ?.copyWith(color: Colors.black54)),
                             trailing: CircleAvatar(
                               radius: 30,
                               backgroundImage: NetworkImage(url + siswa.image),
@@ -243,27 +244,6 @@ class _EditProfileState extends State<EditProfile> {
                       ],
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 53, 17, 110),
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(30),
-                        bottomLeft: Radius.circular(30),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          bottom: 20, right: 30, left: 30),
-                      child: Text(
-                        'Edit Data Profile Siswa',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
                   SizedBox(
                     height: 15,
                   ),
@@ -271,7 +251,7 @@ class _EditProfileState extends State<EditProfile> {
                     'Ganti Poto Profile',
                     style: TextStyle(
                       fontSize: 24,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                   SizedBox(
@@ -287,7 +267,7 @@ class _EditProfileState extends State<EditProfile> {
                               padding: EdgeInsets.only(
                                   left: 15, right: 15, top: 10, bottom: 10),
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 67, 44, 113),
+                                color: Color(0xFFA5A808),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(
@@ -321,7 +301,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Nama :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -332,7 +312,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Email :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -349,16 +329,16 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 57, 44, 89),
-                              border: Border.all(color: Colors.white),
+                              color: Color.fromARGB(255, 143, 177, 68),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: TextField(
-                                enabled: false,
+                                enabled: true,
                                 controller: _textNamaController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Nama',
@@ -373,15 +353,15 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 57, 44, 89),
-                              border: Border.all(color: Colors.white),
+                              color: Color.fromARGB(255, 143, 177, 68),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: TextField(
                                 enabled: false,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 controller: _textEmailController,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -406,7 +386,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Kelas :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -417,7 +397,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Semester :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -434,8 +414,8 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 57, 44, 89),
-                              border: Border.all(color: Colors.white),
+                              color: Color.fromARGB(255, 143, 177, 68),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
@@ -443,7 +423,7 @@ class _EditProfileState extends State<EditProfile> {
                               child: TextField(
                                 enabled: false,
                                 controller: _textKelasController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Kelas',
@@ -458,8 +438,8 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 57, 44, 89),
-                              border: Border.all(color: Colors.white),
+                              color: Color.fromARGB(255, 143, 177, 68),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
@@ -467,7 +447,7 @@ class _EditProfileState extends State<EditProfile> {
                               child: TextField(
                                 enabled: false,
                                 controller: _textSemesterController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Semester',
@@ -491,7 +471,7 @@ class _EditProfileState extends State<EditProfile> {
                           'NIS :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -502,7 +482,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Wali Kelas :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -519,8 +499,8 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 57, 44, 89),
-                              border: Border.all(color: Colors.white),
+                              color: Color.fromARGB(255, 143, 177, 68),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
@@ -528,7 +508,7 @@ class _EditProfileState extends State<EditProfile> {
                               child: TextField(
                                 enabled: false,
                                 controller: _textNisController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Nis',
@@ -543,8 +523,8 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 57, 44, 89),
-                              border: Border.all(color: Colors.white),
+                              color: Color.fromARGB(255, 143, 177, 68),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
@@ -552,7 +532,7 @@ class _EditProfileState extends State<EditProfile> {
                               child: TextField(
                                 enabled: false,
                                 controller: _textWaliKelasController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Wali Kelas',
@@ -576,7 +556,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Alamat :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -587,7 +567,7 @@ class _EditProfileState extends State<EditProfile> {
                           'No Hp :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -604,15 +584,15 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 88, 52, 169),
-                              border: Border.all(color: Colors.white),
+                              color: Color(0xFfB9E45E),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: TextField(
                                 controller: _textAlamatController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Alamat',
@@ -627,15 +607,15 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 88, 52, 169),
-                              border: Border.all(color: Colors.white),
+                              color: Color(0xFfB9E45E),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: TextField(
                                 controller: _textNoHpController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'No Hp',
@@ -659,7 +639,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Nama Ayah :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -670,7 +650,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Pekerjaan Ayah :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -687,15 +667,15 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 88, 52, 169),
-                              border: Border.all(color: Colors.white),
+                              color: Color(0xFfB9E45E),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: TextField(
                                 controller: _textAyahController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Nama Ayah',
@@ -710,15 +690,15 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 88, 52, 169),
-                              border: Border.all(color: Colors.white),
+                              color: Color(0xFfB9E45E),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: TextField(
                                 controller: _textPekerjaanAyahController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Pekerjaan Ayah',
@@ -742,7 +722,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Nama Ibu :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -753,7 +733,7 @@ class _EditProfileState extends State<EditProfile> {
                           'Pekerjaan Ibu :',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -770,15 +750,15 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 88, 52, 169),
-                              border: Border.all(color: Colors.white),
+                              color: Color(0xFfB9E45E),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: TextField(
                                 controller: _textIbuController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Nama Ibu',
@@ -793,15 +773,15 @@ class _EditProfileState extends State<EditProfile> {
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 88, 52, 169),
-                              border: Border.all(color: Colors.white),
+                              color: Color(0xFfB9E45E),
+                              border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: TextField(
                                 controller: _textPekerjaanIbuController,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Pekerjaan Ibu',
@@ -823,7 +803,7 @@ class _EditProfileState extends State<EditProfile> {
                       'Tempat Tanggal Lahir :',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -835,15 +815,15 @@ class _EditProfileState extends State<EditProfile> {
                     child: Container(
                       height: 40, 
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 88, 52, 169),
-                        border: Border.all(color: Colors.white),
+                        color: Color(0xFfB9E45E),
+                        border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextField(
                             controller: _textTtlController,
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Tempat Tanggal Lahir',
@@ -951,7 +931,7 @@ class _EditProfileState extends State<EditProfile> {
                             padding: EdgeInsets.only(
                                 left: 58, right: 58, top: 20, bottom: 20),
                             decoration: BoxDecoration(
-                              color: Colors.deepPurple,
+                              color: Color(0xFFA5A808),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
@@ -982,7 +962,7 @@ class _EditProfileState extends State<EditProfile> {
                             padding: EdgeInsets.only(
                                 left: 55, right: 55, top: 20, bottom: 20),
                             decoration: BoxDecoration(
-                              color: Colors.deepPurple,
+                              color: Color(0xFFA5A808),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(

@@ -96,7 +96,7 @@ class _TransaksiState extends State<Transaksi> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 53, 17, 110),
+        backgroundColor: Color(0xFFA5A808),
         title: Text(
           'Riwayat Transaksi',
           style: TextStyle(
@@ -118,13 +118,14 @@ class _TransaksiState extends State<Transaksi> {
         ),
       ),
       body: Container(
-        color: Color.fromARGB(255, 34, 31, 38),
+        color: Color(0xFFE5E7A9),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 53, 17, 110),
+                color: Color(0xFfB9E45E),
+                border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(50),
                   bottomLeft: Radius.circular(50),
@@ -141,12 +142,12 @@ class _TransaksiState extends State<Transaksi> {
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall
-                              ?.copyWith(color: Colors.white)),
+                              ?.copyWith(color: Colors.black)),
                       subtitle: Text('SMAN 1 WATES',
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
-                              ?.copyWith(color: Colors.white54)),
+                              ?.copyWith(color: Colors.black54)),
                       trailing: CircleAvatar(
                         radius: 30,
                         backgroundImage: NetworkImage(url + siswaImage.image),
@@ -170,7 +171,7 @@ class _TransaksiState extends State<Transaksi> {
                       padding: EdgeInsets.only(
                           left: 15, right: 15, top: 10, bottom: 10),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 67, 44, 113),
+                        color: Color(0xFFA5A808),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Row(
@@ -212,7 +213,8 @@ class _TransaksiState extends State<Transaksi> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 52, 19, 104),
+                        color: Color(0xFfB9E45E),
+                        border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Column(
@@ -232,6 +234,10 @@ class _TransaksiState extends State<Transaksi> {
                           ProfileDetailColumn(
                             title: 'Jumlah         : ' + bayar.jumlah,
                           ),
+
+                             ProfileDetailColumn(
+                            title: 'Status        : ' + bayar.status,
+                          ),
                           ProfileDetailColumn(
                             title: 'Tanggal        : ' +
                                 bayar.createdAt.substring(0, 10),
@@ -245,7 +251,7 @@ class _TransaksiState extends State<Transaksi> {
               Text(
                 'Tidak ada data Transaksi.', // Pesan jika listSiswa kosong
                 style: TextStyle(
-                  color: Colors.white
+                  color: Colors.black
                 ),
               ),
           ],
@@ -266,7 +272,7 @@ class ProfileDetailColumn extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            color: Colors.white,
+            color: Color.fromARGB(255, 31, 27, 27),
             fontWeight: FontWeight.bold,
             fontSize: 18,
           ),

@@ -15,10 +15,10 @@ class _BayarSppState extends State<BayarSpp> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pembayaran SPP'),
-        backgroundColor: Color.fromARGB(255, 53, 17, 110),
+        backgroundColor: Color(0xFFA5A808),
       ),
       body: Container(
-        color: Color.fromARGB(255, 34, 31, 38),
+        color: Color(0xFFE5E7A9),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -26,7 +26,7 @@ class _BayarSppState extends State<BayarSpp> {
               height: 420,
               width: 360,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 40, 26, 63),
+                color: Color(0xFFA5A808),
                 border: Border.all(
                   color: Colors.white, //color of border
                   width: 2, //width of border
@@ -140,10 +140,10 @@ class _BayarSppState extends State<BayarSpp> {
                     child: Text(
                       'Salin Nomor',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
-                    color: Colors.deepPurple,
+                    color: Color(0xFFE5E7A9),
                   ),
                 ],
               ),
@@ -156,7 +156,7 @@ class _BayarSppState extends State<BayarSpp> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
             SizedBox(
@@ -176,7 +176,7 @@ class _BayarSppState extends State<BayarSpp> {
               child: Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.deepPurple,
+                  color: Color(0xFFA5A808),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(

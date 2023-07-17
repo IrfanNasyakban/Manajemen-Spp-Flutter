@@ -23,7 +23,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
 
   Color _getStatusColor(String status) {
     if (status == 'ON PROGRESSING') {
-      return Colors.yellow;
+      return Colors.orange;
     } else if (status == 'BELUM LUNAS') {
       return Colors.red;
     } else if (status == 'LUNAS') {
@@ -99,7 +99,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
     }
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 34, 31, 38),
+      backgroundColor: Color(0xFFE5E7A9),
       appBar: AppBar(
         title: Text(
           'Bukti Pembayaran',
@@ -109,7 +109,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
             color: Colors.white,
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 53, 17, 110),
+        backgroundColor: Color(0xFFA5A808),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -132,7 +132,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 53, 17, 110),
+                    color: Color(0xFfB9E45E),
                     borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(50),
                       bottomLeft: Radius.circular(50),
@@ -149,12 +149,12 @@ class _BuktiBayarState extends State<BuktiBayar> {
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineSmall
-                                  ?.copyWith(color: Colors.white)),
+                                  ?.copyWith(color: Colors.black)),
                           subtitle: Text('SMAN 1 WATES',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleMedium
-                                  ?.copyWith(color: Colors.white54)),
+                                  ?.copyWith(color: Colors.black54)),
                           trailing: CircleAvatar(
                             radius: 30,
                             backgroundImage: NetworkImage(url + siswa.image),
@@ -188,7 +188,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       Text(
@@ -197,7 +197,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       SizedBox(
@@ -208,7 +208,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       Text(
@@ -216,7 +216,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       Text(
@@ -224,7 +224,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       SizedBox(
@@ -235,7 +235,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 21,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       SizedBox(
@@ -246,7 +246,7 @@ class _BuktiBayarState extends State<BuktiBayar> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 17,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       SizedBox(

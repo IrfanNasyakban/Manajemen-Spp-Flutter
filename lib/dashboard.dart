@@ -95,13 +95,13 @@ class _DashboardState extends State<Dashboard> {
 
     return Scaffold(
       body: Container(
-        color: Color.fromARGB(255, 34, 31, 38),
+        color: Color(0xFFA5A808),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 53, 17, 110),
+                color: Color(0xFfB9E45E),
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(50),
                 ),
@@ -117,12 +117,12 @@ class _DashboardState extends State<Dashboard> {
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall
-                              ?.copyWith(color: Colors.white)),
+                              ?.copyWith(color: Colors.black)),
                       subtitle: Text('SMAN 1 WATES',
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
-                              ?.copyWith(color: Colors.white54)),
+                              ?.copyWith(color: Colors.black54)),
                       trailing: CircleAvatar(
                         radius: 30,
                         backgroundImage: NetworkImage(url + siswaImage.image),
@@ -133,11 +133,11 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
             Container(
-              color: Color.fromARGB(255, 53, 17, 110),
+              color: Color(0xFfB9E45E),
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 34, 31, 38),
+                  color: Color(0xFFA5A808),
                   borderRadius:
                       BorderRadius.only(topLeft: Radius.circular(200)),
                 ),
@@ -215,12 +215,12 @@ class _DashboardState extends State<Dashboard> {
       onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 84, 28, 173),
+          color: Color(0xFFE5E7A9),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
               offset: const Offset(0, 5),
-              color: Theme.of(context).primaryColor.withOpacity(.2),
+              color: Color.fromARGB(255, 17, 17, 18).withOpacity(0.5),
               spreadRadius: 2,
               blurRadius: 5,
             )
@@ -240,7 +240,7 @@ class _DashboardState extends State<Dashboard> {
             const SizedBox(height: 8),
             Text(
               title.toUpperCase(),
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.black),
             ),
           ],
         ),

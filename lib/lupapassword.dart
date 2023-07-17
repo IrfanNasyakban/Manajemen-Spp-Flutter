@@ -51,10 +51,10 @@ class _LupaPasswordState extends State<LupaPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 34, 31, 38),
+      backgroundColor: Color(0xFFA5A808),
         appBar: AppBar(
           title: Text('Reset Password'),
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Color.fromARGB(255, 0, 0, 0),
           elevation: 0,
         ),
         body: Column(
@@ -80,20 +80,20 @@ class _LupaPasswordState extends State<LupaPassword> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
-                  border: Border.all(color: Colors.white),
+                  border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: TextField(
                   controller: _emailController,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12)),
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.deepPurple),
                         borderRadius: BorderRadius.circular(12)),
                     hintText: 'Email',
-                    fillColor: Colors.grey[200],
+                    fillColor: Color(0xFfB9E45E),
                     filled: true,
                   ),
                 ),
@@ -110,7 +110,7 @@ class _LupaPasswordState extends State<LupaPassword> {
                   color: Colors.white,
                 ),
               ),
-              color: Colors.deepPurple,
+              color: Color.fromARGB(255, 85, 15, 207),
             ),
           ],
         ));

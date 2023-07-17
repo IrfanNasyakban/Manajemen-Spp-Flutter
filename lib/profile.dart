@@ -84,7 +84,7 @@ class _MyProfileState extends State<MyProfile> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
-        backgroundColor: Color.fromARGB(255, 53, 17, 110),
+        backgroundColor: Color(0xFFA5A808),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -100,15 +100,17 @@ class _MyProfileState extends State<MyProfile> {
         ),
       ),
       body: Container(
-        color: Color.fromARGB(255, 34, 31, 38),
+        color: Color(0xFFE5E7A9),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 53, 17, 110),
+                color: Color(0xFfB9E45E),
+                border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(50),
+                  bottomLeft: Radius.circular(50),
                 ),
               ),
               child: Column(
@@ -122,12 +124,12 @@ class _MyProfileState extends State<MyProfile> {
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall
-                              ?.copyWith(color: Colors.white)),
+                              ?.copyWith(color: Colors.black)),
                       subtitle: Text('SMAN 1 WATES',
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
-                              ?.copyWith(color: Colors.white54)),
+                              ?.copyWith(color: Colors.black54)),
                       trailing: CircleAvatar(
                         radius: 30,
                         backgroundImage: NetworkImage(url + siswa.image),
@@ -149,7 +151,8 @@ class _MyProfileState extends State<MyProfile> {
                   padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 52, 19, 104),
+                      border: Border.all(color: Colors.black),
+                      color: Color(0xFFA5A808),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(
@@ -226,7 +229,7 @@ class _MyProfileState extends State<MyProfile> {
                       padding: EdgeInsets.only(
                           left: 72, right: 72, top: 20, bottom: 20),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Color(0xFFA5A808),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
@@ -257,7 +260,7 @@ class _MyProfileState extends State<MyProfile> {
                       padding: EdgeInsets.only(
                           left: 55, right: 55, top: 20, bottom: 20),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Color(0xFFA5A808),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(

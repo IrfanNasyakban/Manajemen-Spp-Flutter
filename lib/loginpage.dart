@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 34, 31, 38),
+      backgroundColor: Color(0xFFA5A808),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -91,8 +91,8 @@ class _LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
+                      color: Color(0xFfB9E45E),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(
@@ -114,8 +114,8 @@ class _LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
+                      color: Color(0xFfB9E45E),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Container(
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Color.fromARGB(255, 85, 15, 207),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(
@@ -187,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                         ' Klik Disini',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.red,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

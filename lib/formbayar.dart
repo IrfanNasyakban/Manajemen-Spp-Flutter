@@ -111,10 +111,10 @@ class _FormBayarState extends State<FormBayar> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pembayaran SPP'),
-        backgroundColor: Color.fromARGB(255, 53, 17, 110),
+        backgroundColor: Color(0xFFA5A808),
       ),
       body: Container(
-        color: Color.fromARGB(255, 34, 31, 38),
+        color: Color(0xFFE5E7A9),
         child: SafeArea(
           child: Center(
             child: SingleChildScrollView(
@@ -126,7 +126,7 @@ class _FormBayarState extends State<FormBayar> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
-                        color: Colors.white),
+                        color: Colors.black),
                   ),
                   SizedBox(
                     height: 35,
@@ -135,14 +135,14 @@ class _FormBayarState extends State<FormBayar> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 57, 44, 89),
-                        border: Border.all(color: Colors.white),
+                        color: Color(0xFfB9E45E),
+                        border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextField(
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                             enabled: false,
                             controller: _textNamaController,
                             decoration: InputDecoration(
@@ -159,15 +159,15 @@ class _FormBayarState extends State<FormBayar> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 57, 44, 89),
-                        border: Border.all(color: Colors.white),
+                        color: Color(0xFfB9E45E),
+                        border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextField(
                             enabled: false,
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                             controller: _textKelasController,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -183,14 +183,14 @@ class _FormBayarState extends State<FormBayar> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 57, 44, 89),
-                        border: Border.all(color: Colors.white),
+                        color: Color(0xFfB9E45E),
+                        border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextField(
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                             controller: _textSemesterController,
                             decoration: InputDecoration(
                               enabled: false,
@@ -207,15 +207,15 @@ class _FormBayarState extends State<FormBayar> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 57, 44, 89),
-                        border: Border.all(color: Colors.white),
+                        color: Color(0xFfB9E45E),
+                        border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextField(
                             enabled: false,
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                             controller: _textJumlahController,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -239,13 +239,13 @@ class _FormBayarState extends State<FormBayar> {
                                 padding: EdgeInsets.only(
                                     left: 15, right: 15, top: 10, bottom: 10),
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 67, 44, 113),
+                                  color: Color(0xFfB9E45E),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Text(
                                   'Pick Image',
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontSize: 14,
                                   ),
                                 ),
@@ -334,7 +334,7 @@ class _FormBayarState extends State<FormBayar> {
                             padding: EdgeInsets.only(
                                 left: 65, right: 65, top: 20, bottom: 20),
                             decoration: BoxDecoration(
-                              color: Colors.deepPurple,
+                              color: Color(0xFFA5A808),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
@@ -365,7 +365,7 @@ class _FormBayarState extends State<FormBayar> {
                             padding: EdgeInsets.only(
                                 left: 55, right: 55, top: 20, bottom: 20),
                             decoration: BoxDecoration(
-                              color: Colors.deepPurple,
+                              color: Color(0xFFA5A808),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
