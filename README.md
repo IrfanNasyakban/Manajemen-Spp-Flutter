@@ -25,7 +25,7 @@
 <img src="https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/a9ba2215-e943-4c18-8b38-536e093c731d.png" alt="InputPembayaran" width="300">
 
 ### Riwayat Transaksi:
-![RiwayatTransaksi](https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/4805f0c9-13fc-46e2-a8a5-525feb535394)
+<img src="https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/4805f0c9-13fc-46e2-a8a5-525feb535394.png" alt="RiwayatTransaksi" width="300">
 
 ### Detail Transaksi:
-![FormBuktiPembayaran](https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/30e10c9f-d963-4770-8181-cc3cf46f84ea)
+<img src="https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/30e10c9f-d963-4770-8181-cc3cf46f84ea.png" alt="DetailTransaksi" width="300">
