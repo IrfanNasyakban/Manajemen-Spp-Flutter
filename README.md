@@ -16,15 +16,12 @@
 <img src="https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/5aac8a94-1174-4976-9461-c1ff7e933f7c.png" alt="ProfilePage" width="300">
 
 ### Edit Profile:
-![EditProfile](https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/7a5e39aa-36cc-49d4-912f-4c2894e4e897)
 <img src="https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/7a5e39aa-36cc-49d4-912f-4c2894e4e897.png" alt="EditProfile" width="300">
 
 ### Form Pembayaran:
-![FormPembayaran](https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/8199c638-0a95-41a8-a7e7-17ad0a3c80ce)
 <img src="https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/70449673/8199c638-0a95-41a8-a7e7-17ad0a3c80ce.png" alt="FormPembayaran" width="300">
 
 ### Input Pembayaran:
-![InputDataBayar](https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/a9ba2215-e943-4c18-8b38-536e093c731d)
 <img src="https://github.com/IrfanNasyakban/Manajemen-Spp-Flutter/assets/70449673/a9ba2215-e943-4c18-8b38-536e093c731d.png" alt="InputPembayaran" width="300">
 
 ### Riwayat Transaksi:
